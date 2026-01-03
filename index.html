@@ -1158,6 +1158,15 @@ html {
   }
 
 }
+.hamburger.active span:nth-child(1){
+  transform: rotate(45deg) translate(5px,5px);
+}
+.hamburger.active span:nth-child(2){
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3){
+  transform: rotate(-45deg) translate(6px,-6px);
+}
 
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -1626,7 +1635,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 </script>
+<script>
+const hamburger = document.getElementById("hamburger");
+const nav = document.querySelector("nav");
+
+hamburger.addEventListener("click", () => {
+  nav.classList.toggle("active");
+  hamburger.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
+
 
