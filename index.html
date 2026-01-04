@@ -1737,9 +1737,47 @@ document.querySelectorAll('nav a').forEach(link => {
   });
 });
 </script>
+<script>
+/* ===============================
+   PERFECT MOBILE MENU BEHAVIOR
+================================ */
+
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', function (e) {
+
+    if (window.innerWidth > 900) return;
+
+    const parentDropdown = this.closest('.dropdown');
+    const parentSub = this.closest('.dropdown-sub');
+
+    // 🔹 CASE 1: Our Product Range (main dropdown)
+    if (parentDropdown && !parentSub && this.getAttribute('href') === '#products') {
+      e.preventDefault();
+      parentDropdown.classList.toggle('active');
+      return;
+    }
+
+    // 🔹 CASE 2: Sub dropdown toggle (Plywood / Veneers)
+    if (parentSub && this.getAttribute('href') === '#') {
+      e.preventDefault();
+      parentSub.classList.toggle('active');
+      return;
+    }
+
+    // 🔹 CASE 3: REAL LINK / ANCHOR → CLOSE EVERYTHING
+    setTimeout(() => {
+      document.querySelector('nav').classList.remove('active');
+
+      document.querySelectorAll('.dropdown, .dropdown-sub')
+        .forEach(el => el.classList.remove('active'));
+    }, 300);
+  });
+});
+</script>
 
 </body>
 </html>
+
 
 
 
