@@ -1106,29 +1106,12 @@ html {
 .dropdown-submenu li:last-child a {
     border-bottom: none;
 }
-
-    /* 4. Individual items styling */
-    .dropdown-menu li, 
-    .dropdown-submenu li {
-        width: 100% !important;
-        display: block !important;
-    }
-
-    .dropdown-menu li a {
-        padding: 12px 20px !important;
-        display: block !important;
-        width: 100% !important;
-        color: #333 !important;
-        text-decoration: none !important;
-        border-bottom: 1px solid #eee !important;
-        text-align: left !important;
-    }
-
-    /* Aakhri border hatane ke liye */
-    .dropdown-menu li:last-child a {
-        border-bottom: none !important;
-    }
+.dropdown:hover > .dropdown-menu,
+.dropdown-sub:hover > .dropdown-submenu {
+    display: flex; /* flex-column works with new li */
+    flex-direction: column;
 }
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -1647,6 +1630,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 
 </body>
 </html>
+
 
 
 
