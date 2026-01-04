@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natural Veneers</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
+body{
+  background:#f4f4f4;
+  color:#222;
+}
+
+/* HERO */
+.hero{
+  height:60vh;
+  background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+  url("images/teak-hero.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+}
+.hero h1{font-size:48px;margin-bottom:10px}
+.hero p{font-size:18px}
+
+/* SECTION */
+.section{
+  padding:70px 6%;
+}
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+.section-title h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+.section-title p{
+  color:#666;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.product-box{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+.product-box img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
+.product-title{
+  padding:15px;
+  font-size:20px;
+}
+
+/* 🔥 VIDEO + CONTENT GRID */
+.video-content{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:60px;
+  align-items:flex-start;
+}
+
+/* VIDEO */
+.video-box{
+  width:100%;
+  aspect-ratio:9/16;
+  background:#000;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+.video-box video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* RIGHT CONTENT */
+.veneer-content h3{
+  font-size:34px;
+  margin-bottom:15px;
+  color:#7a4a2e;
+}
+.veneer-content p{
+  font-size:17px;
+  line-height:1.7;
+  color:#444;
+  margin-bottom:22px;
+}
+
+/* FEATURES */
+.features{
+  list-style:none;
+  margin-bottom:30px;
+}
+.features li{
+  font-size:16px;
+  margin-bottom:12px;
+  padding-left:28px;
+  position:relative;
+}
+.features li::before{
+  content:"✔";
+  position:absolute;
+  left:0;
+  top:0;
+  color:#c89b3c;
+  font-weight:bold;
+}
+
+/* INTERIOR IMAGE */
+.interior-img{
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.interior-img img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+/* APPLICATIONS */
+.applications{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+.app-box{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+}
+.app-box img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+.app-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.65),transparent);
+  display:flex;
+  align-items:flex-end;
+  padding:20px;
+  color:#fff;
+}
+
+/* CTA */
+.cta{
+  background:#222;
+  color:#fff;
+  padding:60px 6%;
+  text-align:center;
+}
+.cta a{
+  display:inline-block;
+  margin-top:15px;
+  padding:14px 34px;
+  background:#c89b3c;
+  color:#fff;
+  text-decoration:none;
+  border-radius:30px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .video-content{
+    grid-template-columns:1fr;
+  }
+  .video-box{
+    max-width:320px;
+    margin:auto;
+  }
+  .veneer-content{
+    text-align:center;
+  }
+  .features{
+    text-align:left;
+    max-width:420px;
+    margin:20px auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Natural Veneers</h1>
+    <p>Luxury natural wood surfaces with timeless elegance</p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <div class="section-title">
+    <h2>Natural Veneer Collection</h2>
+    <p>Hand-selected premium wood finishes</p>
+  </div>
+
+  <div class="products">
+    <div class="product-box">
+      <img src="images/veneer.jpg">
+      <div class="product-title">Natural Veneers</div>
+    </div>
+    <div class="product-box">
+      <img src="images/laminate.jpg">
+      <div class="product-title">Teak Veneers</div>
+    </div>
+    <div class="product-box">
+      <img src="images/bending-ply.jpg">
+      <div class="product-title">Decorative Veneers</div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔥 VIDEO + WRITEUP + IMAGE -->
+<section class="section" style="background:#f9f9f9">
+  <div class="video-content">
+
+    <!-- LEFT VIDEO -->
+    <div class="video-box">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="veneer v.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="veneer-content">
+      <h3>Premium Natural Veneers</h3>
+      <p>
+        Our natural veneers are crafted from carefully selected hardwood logs,
+        delivering authentic grain patterns, warmth, and unmatched elegance
+        for luxury interiors.
+      </p>
+
+      <ul class="features">
+        <li>100% genuine natural wood grains</li>
+        <li>Rich texture with uniform color tone</li>
+        <li>Perfect for wall panels & furniture</li>
+        <li>High durability with premium finish</li>
+        <li>Easy application & long life</li>
+      </ul>
+
+      <!-- INTERIOR IMAGE -->
+      <div class="interior-img">
+        <img src="vn.png" alt="Veneer Interior Application">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section class="section" style="background:#eee">
+  <div class="section-title">
+    <h2>Interior Applications</h2>
+  </div>
+
+  <div class="applications">
+    <div class="app-box">
+      <img src="1.jfif">
+      <div class="app-overlay">Luxury Wall Paneling</div>
+    </div>
+    <div class="app-box">
+      <img src="2.jfif">
+      <div class="app-overlay">Designer Wardrobes</div>
+    </div>
+    <div class="app-box">
+      <img src="3.jfif">
+      <div class="app-overlay">Premium Furniture</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Bring Timeless Wood Elegance</h2>
+  <a href="mwpplywood.html#contact">Get in Touch</a>
+</section>
+
+</body>
+</html>
