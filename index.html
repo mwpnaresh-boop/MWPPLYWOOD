@@ -738,10 +738,12 @@ html, body {
 
 @media(max-width:900px){
 
+  /* HAMBURGER */
   .hamburger{
-    display:flex; /* 🔥 MOST IMPORTANT */
+    display:flex;
   }
 
+  /* NAV */
   nav{
     position:fixed;
     top:70px;
@@ -749,10 +751,7 @@ html, body {
     width:260px;
     height:calc(100vh - 70px);
     background:#fff;
-    box-shadow:-10px 0 30px rgba(0,0,0,0.2);
     transition:0.4s ease;
-    padding-top:25px;
-    overflow-y:auto;
     z-index:9999;
   }
 
@@ -765,16 +764,21 @@ html, body {
     gap:18px;
     padding-left:20px;
   }
-}
 
-  nav.active{
-    right:0;
-  }
-
-  .hamburger{
+  /* DROPDOWN */
+  .dropdown-menu,
+  .dropdown-submenu{
+    position:static;
     display:none;
   }
-}
+
+  .dropdown.active > .dropdown-menu{
+    display:block;
+  }
+
+  .dropdown-sub.active > .dropdown-submenu{
+    display:block;
+  }
 /* ===== DESKTOP DROPDOWN FINAL FIX ===== */
 .products-container {
   display: flex;       /* ya grid, depends on preference */
@@ -1144,7 +1148,13 @@ html {
   nav.active {
     right: 0;
   }
-<link rel="stylesheet" href="header.css">
+  nav ul,
+nav ul li{
+  list-style:none !important;
+  margin:0;
+  padding:0;
+}
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -1671,6 +1681,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
