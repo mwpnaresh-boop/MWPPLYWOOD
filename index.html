@@ -974,52 +974,40 @@ html {
   }
 }
 
-/* ===== INTERIOR GALLERY SECTION ===== */
-.interior-gallery{
-  padding:90px 12%;
-  background:#ffffff;
-  text-align:center;
-}
-
-.interior-gallery h2{
-  font-size:38px;
-  color:var(--primary);
-  margin-bottom:10px;
-}
-
-.gallery-sub{
-  font-size:16px;
-  color:#777;
-  margin-bottom:50px;
-}
-
-/* DESKTOP – DEFAULT */
-/* Gallery ko 3-column layout mein laane ke liye */
-.gallery-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
+/* --- GALLERY GRID FORCE FIX --- */
+.interior-gallery .gallery-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
     gap: 20px !important;
-    padding: 20px 0 !important;
     width: 100% !important;
+    max-width: 1200px;
+    margin: 0 auto !important;
 }
 
-.gallery-item {
-    width: 100% !important;
-    height: 300px !important; /* Image ki height fix */
+.interior-gallery .gallery-item {
+    /* 3 items per row calculation */
+    flex: 0 0 calc(33.33% - 20px) !important; 
+    height: 300px !important;
+    overflow: hidden;
+    border-radius: 15px;
 }
 
-.gallery-item img {
+.interior-gallery .gallery-item img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Photo kategi nahi, set ho jayegi */
+    object-fit: cover !important;
+    transition: 0.4s ease;
 }
 
-/* Mobile ke liye safety (1 column) */
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr !important;
+/* Mobile par 1 Column */
+@media (max-width: 900px) {
+    .interior-gallery .gallery-item {
+        flex: 0 0 100% !important;
     }
-    
+    header ul.menu {
+        display: none !important; /* Hamburger click par toggle logic alag hoga */
+    }
 }
   html, body {
     overflow-x: hidden !important;
@@ -1674,6 +1662,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
