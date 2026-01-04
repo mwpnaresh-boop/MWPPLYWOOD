@@ -155,6 +155,72 @@ nav a:hover { color: var(--accent); }
     perspective: 1000px;
 }
 
+/* ===============================
+   DESKTOP DROPDOWN – FINAL (ONLY ONCE)
+================================ */
+
+.menu li {
+  position: relative;
+}
+
+/* main dropdown */
+.dropdown-menu {
+  display: none;              /* 🔥 KEY LINE */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 220px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+
+/* submenu */
+.dropdown-submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #fff;
+  min-width: 220px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+
+/* hover logic (DESKTOP ONLY) */
+@media (min-width: 901px) {
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-sub:hover > .dropdown-submenu {
+    display: block;
+  }
+}
+
+/* spacing */
+.dropdown-menu li,
+.dropdown-submenu li {
+  padding: 10px 15px;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+
+  .dropdown-menu,
+  .dropdown-submenu {
+    position: static;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown.active > .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-sub.active > .dropdown-submenu {
+    display: block;
+  }
+}
 
 .about-box {
     background: #fff;
@@ -1055,74 +1121,6 @@ html {
   nav.active {
     right: 0;
   }
-  /* ===== DESKTOP DROPDOWN – FINAL FIX ===== */
-
-.menu li {
-  position: relative;
-}
-
-/* main dropdown */
-.dropdown-menu {
-  display: none;              /* 🔥 MOST IMPORTANT */
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  min-width: 220px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  z-index: 9999;
-}
-
-/* submenu */
-.dropdown-submenu {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background: #fff;
-  min-width: 220px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  z-index: 9999;
-}
-
-/* hover logic */
-.dropdown:hover > .dropdown-menu {
-  display: block;
-}
-
-.dropdown-sub:hover > .dropdown-submenu {
-  display: block;
-}
-
-/* spacing */
-.dropdown-menu li,
-.dropdown-submenu li {
-  padding: 10px 15px;
-  white-space: nowrap;
-}
-
-.dropdown-menu li a {
-  color: #7a5e12;
-  font-weight: 500;
-}
-@media (max-width: 900px) {
-
-  .dropdown-menu,
-  .dropdown-submenu {
-    position: static;
-    box-shadow: none;
-    display: none;
-  }
-
-  .dropdown.active > .dropdown-menu {
-    display: block;
-  }
-
-  .dropdown-sub.active > .dropdown-submenu {
-    display: block;
-  }
-}
-
 
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -1608,25 +1606,6 @@ hamburger.addEventListener("click", () => {
 });
 </script>
 <script>
-document.querySelectorAll('.dropdown > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (window.innerWidth <= 900) {
-      e.preventDefault();
-      link.parentElement.classList.toggle('active');
-    }
-  });
-});
-
-document.querySelectorAll('.dropdown-sub > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (window.innerWidth <= 900) {
-      e.preventDefault();
-      link.parentElement.classList.toggle('active');
-    }
-  });
-});
-</script>
-<script>
   // Check if loader already shown in this session
   if (!sessionStorage.getItem("loaderShown")) {
 
@@ -1669,6 +1648,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
