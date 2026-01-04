@@ -675,28 +675,6 @@ html, body {
   position: relative;
 }
 /* ===== DESKTOP DROPDOWN FINAL FIX ===== */
-@media (min-width: 901px) {
-
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 220px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: 0.3s ease;
-    z-index: 9999;
-  }
-
-  .dropdown:hover > .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
 
   .dropdown-submenu {
     position: absolute;
@@ -1614,12 +1592,11 @@ html {
     <div class="footer-col map-col">
       <h3>Visit Our Showroom</h3>
       <div class="map-box">
-        <iframe
-  src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8926420619377!2d77.5552756!3d12.9787179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d6f39fc0639%3A0xe14bc5c07afb38f3!2sMWP%20Studio(%20Tongue%20%26%20Groove)!5e0!3m2!1sen!2sin!4v1767515618424!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-      </div>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8926420619377!2d77.5552756!3d12.9787179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d6f39fc0639%3A0xe14bc5c07afb38f3!2sMWP%20Studio(%20Tongue%20%26%20Groove)!5e0!3m2!1sen!2sin!4v1767516392321!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
     </div>
 
   </div>
@@ -1814,6 +1791,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 
 </body>
 </html>
+
 
 
 
