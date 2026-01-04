@@ -1178,6 +1178,20 @@ html {
     display:block !important;
   }
 }
+@media(max-width:900px){
+  .dropdown-menu,
+  .dropdown-submenu{
+    display: none !important;
+  }
+
+  .dropdown.active > .dropdown-menu{
+    display: block !important;
+  }
+
+  .dropdown-sub.active > .dropdown-submenu{
+    display: block !important;
+  }
+}
 
 
 </style>
@@ -1520,7 +1534,7 @@ html {
 window.addEventListener("load", () => {
   setTimeout(() => {
     document.body.classList.add("loaded");
-  }, 5000); // 5000ms = 5 seconds
+  }, 3000); // 3000ms = 3 seconds
 });
 // 2. Counter Logic (Pehle jaisa hi)
 const counters = document.querySelectorAll('.counter');
@@ -1647,8 +1661,61 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 </script>
+<script>
+window.addEventListener("load", () => {
 
+  // ✅ Agar loader pehle hi dikh chuka hai
+  if (sessionStorage.getItem("loaderShown")) {
+    document.body.classList.add("loaded");
+    return;
+  }
+
+  // ❌ Pehli baar load hone par loader dikhega
+  setTimeout(() => {
+    document.body.classList.add("loaded");
+
+    // 🔐 Flag set kar do (session ke liye)
+    sessionStorage.setItem("loaderShown", "true");
+  }, 3000); // loader duration (3 sec – aap change kar sakte ho)
+
+});
+</script>
+<script>
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+</script>
+  <script>
+  // Mobile dropdown toggle
+document.querySelectorAll('.dropdown > a').forEach(drop => {
+  drop.addEventListener('click', function(e) {
+    const screenWidth = window.innerWidth;
+    if(screenWidth <= 900){ // mobile only
+      e.preventDefault(); // link ko follow na kare
+      const parent = this.parentElement;
+      parent.classList.toggle('active'); // CSS me .active > .dropdown-menu { display:block }
+    }
+  });
+});
+
+// Mobile sub-dropdown toggle
+document.querySelectorAll('.dropdown-sub > a').forEach(subDrop => {
+  subDrop.addEventListener('click', function(e){
+    const screenWidth = window.innerWidth;
+    if(screenWidth <= 900){
+      e.preventDefault();
+      const parent = this.parentElement;
+      parent.classList.toggle('active'); // CSS me .active > .dropdown-submenu { display:block }
+    }
+  });
+});
+</script>
 </body>
 </html>
+
 
 
