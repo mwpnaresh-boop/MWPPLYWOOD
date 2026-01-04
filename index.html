@@ -1090,6 +1090,22 @@ html {
     .dropdown-sub:hover > .dropdown-submenu {
         display: flex !important; /* Flex direction column ke saath dikhayega */
     }
+.dropdown-submenu li {
+    display: block;
+    width: 100%;
+}
+
+.dropdown-submenu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-submenu li:last-child a {
+    border-bottom: none;
+}
 
     /* 4. Individual items styling */
     .dropdown-menu li, 
@@ -1147,19 +1163,14 @@ html {
    <li class="dropdown">
       <a href="#products">Our Product Range <i class="fa fa-chevron-down"></i></a>
 
-      <ul class="dropdown-menu">
+      <<ul class="dropdown-submenu">
+   <li><a href="GURJAN CLUB.html#gurjan-club">Gurjan Club</a></li>
+   <li><a href="GURJAN CLUB.html#bwr-platinum">BWR Platinum</a></li>
+   <li><a href="GURJAN CLUB.html#bwp-platinum">BWP Platinum</a></li>
+   <li><a href="GURJAN CLUB.html#mr-platinum">MR Platinum</a></li>
+   <li><a href="GURJAN CLUB.html#calibrated-16mm">16mm Calibrated</a></li>
+</ul>
 
-        <!-- PLYWOOD -->
-        <li class="dropdown-sub">
-          <a href="#">Plywood <i class="fa fa-angle-right"></i></a>
-          <ul class="dropdown-submenu">
-           <a href="GURJAN CLUB.html#gurjan-club">Gurjan Club</a>
-           <a href="GURJAN CLUB.html#bwr-platinum">BWR Platinum</a>
-            <a href="GURJAN CLUB.html#bwp-platinum">BWP Platinum</a>
-            <a href="GURJAN CLUB.html#mr-platinum">MR Platinum</a>
-             <a href="GURJAN CLUB.html#calibrated-16mm">16mm Calibrated</a>
-
-          </ul>
         </li>
 
         <!-- VENEERS -->
@@ -1636,6 +1647,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 
 </body>
 </html>
+
 
 
 
