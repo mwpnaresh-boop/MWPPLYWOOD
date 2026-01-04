@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maheshwari Plywoods | Premium Wood Solutions</title>
+
+<style>
+:root {
+  --primary: #7a4a2e;
+  --secondary: #e6c17c;
+  --text-dark: #333;
+  --bg-light: #f4f4f4;
+}
+
+/* GENERAL RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', Arial, sans-serif;}
+body{background: var(--bg-light); overflow-x:hidden; scroll-behavior:smooth;}
+
+/* TOP BAR */
+.topbar{
+  background: var(--primary);
+  color:#fff;
+  padding:8px 40px;
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  padding:10px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+/* LOGO */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.logo-img { height:50px; width:auto; }
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing:1px;
+}
+
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:#555;
+  font-size:15px;
+  font-weight:600;
+  transition:0.3s;
+}
+nav a:hover{color: var(--primary);}
+
+/* SLIDER */
+.slider{position:relative; height:75vh; overflow:hidden;}
+.slides{display:flex; height:100%; transition: transform 0.8s ease-in-out;}
+.slide{
+  min-width:100%;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  position:relative;
+}
+.slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+}
+.slide-content{position:relative; z-index:2; padding: 20px;}
+.slide h1{font-size:48px; color: var(--secondary); margin-bottom:15px; text-shadow:2px 2px 4px rgba(0,0,0,0.5);}
+.slide p{font-size:22px;}
+
+/* ARROWS */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.3);
+  color:#fff;
+  font-size:24px;
+  padding:15px 20px;
+  cursor:pointer;
+  transition:0.3s;
+  border-radius:50%;
+  z-index:10;
+}
+.arrow:hover{background: var(--primary);}
+.arrow.left{left:20px;}
+.arrow.right{right:20px;}
+
+/* SECTIONS */
+.section{padding:80px 10%; background:#fff;}
+.section:nth-child(even){background:#fdfdfd;}
+.section h2{text-align:center; color: var(--primary); margin-bottom:30px; font-size:32px;}
+.section p{text-align:center; font-size:18px; color:#666; line-height:1.6; max-width:800px; margin:0 auto;}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:5px;
+  margin-top:40px;
+}
+.product-box{
+  background:#fff;
+  padding:40px 20px;
+  text-align:center;
+  border-bottom:4px solid var(--secondary);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  font-weight:bold;
+  color: var(--primary);
+  transition: 0.3s;
+}
+.product-box:hover { transform: translateY(-5px); background: #fcfcfc; }
+
+/* GURJAN / BWP SECTIONS */
+.gurjan-section-wrapper {
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.section-title {
+  text-align:center;
+  font-size:36px;
+  color: var(--primary);
+  margin:60px 0 20px;
+}
+
+.gurjan-section {
+  background:#fff;
+  border-radius:20px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  box-shadow:0 25px 55px rgba(0,0,0,0.12);
+  overflow:hidden;
+  padding:30px 0;
+}
+
+.gurjan-image {
+  flex:0.7;
+  padding:0; /* remove all padding so image goes to left edge */
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  transform: translateX(-100%); /* fully hidden offscreen left */
+  transition: transform 5s ease;
+}
+
+.gurjan-image.slide-in {
+  transform: translateX(0); /* slide fully into place */
+}
+
+.gurjan-image img {
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:12px;
+}
+
+.gurjan-image img:hover{
+  transform:scale(1.5);
+  transition: transform 0.3s ease;
+}
+
+.gurjan-content{
+  flex:1.3;
+  padding:0 50px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.gurjan-content p{
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:18px;
+  color:#555;
+  max-width:550px;
+}
+
+.gurjan-buttons{
+  display:flex;
+  gap:20px;
+}
+
+.gurjan-buttons button{
+  padding:15px 36px;
+  border-radius:10px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  transition:0.4s;
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+}
+
+.btn-primary:hover{
+  background:var(--secondary);
+  color:#333;
+  transform:translateY(-3px);
+}
+
+.btn-outline{
+  border:2px solid var(--primary);
+  background:transparent;
+  color:var(--primary);
+}
+
+.btn-outline:hover{
+  background:var(--primary);
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+/* POPUP FORM */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.popup-box{
+  position:relative;
+  background:#fff;
+  width:90%;
+  max-width:420px;
+  border-radius:18px;
+  padding:40px 35px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.3);
+  animation:fadeUp 0.5s ease;
+  text-align:center;
+}
+
+.popup-box h2{
+  color:var(--primary);
+  margin-bottom:6px;
+}
+
+.popup-sub{
+  font-size:14px;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.popup-box input{
+  width:100%;
+  padding:14px 15px;
+  margin-bottom:16px;
+  border-radius:10px;
+  border:1.5px solid #ddd;
+  font-size:15px;
+}
+
+.popup-box input:focus{
+  outline:none;
+  border-color:var(--primary);
+}
+
+.popup-btn{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:none;
+  background:var(--primary);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.popup-btn:hover{
+  background:var(--secondary);
+  color:#333;
+}
+
+.popup-close{
+  position:absolute;
+  top:15px;
+  right:18px;
+  font-size:26px;
+  cursor:pointer;
+  color:#999;
+}
+
+.popup-close:hover{
+  color:#000;
+}
+
+/* MEDIA QUERIES */
+@media(max-width:900px){
+  .gurjan-section{
+    flex-direction:column;
+    padding:20px;
+  }
+
+  .gurjan-image{
+    padding:20px;
+  }
+
+  .gurjan-image img{
+    height:300px;
+    max-width:100%;
+  }
+
+  .gurjan-content{
+    padding:20px;
+  }
+
+  .gurjan-content h1{
+    font-size:32px;
+  }
+
+  nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+  nav a { margin:0; font-size:14px; }
+}
+/* ================= RIGHT STICKY NAV ================= */
+
+.product-nav{
+  position:fixed;
+  right:30px;
+  top:50%;
+  transform:translateY(-50%);
+  width:220px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+  border-radius:22px;
+  padding:25px 20px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.25);
+  z-index:999;
+}
+
+.product-nav h3{
+  text-align:center;
+  font-size:18px;
+  color:var(--primary);
+  margin-bottom:20px;
+  letter-spacing:1px;
+}
+
+.product-nav a{
+  display:block;
+  padding:14px 18px;
+  margin-bottom:12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  color:#555;
+  border-radius:14px;
+  transition:0.35s;
+  background:#f6f6f6;
+}
+
+.product-nav a:hover{
+  background:linear-gradient(135deg,var(--primary),#5a321d);
+  color:#fff;
+  transform:translateX(-6px);
+}
+
+/* PAGE CONTENT SHIFT */
+.gurjan-section-wrapper{
+  margin-right:300px;
+}
+
+/* MOBILE HIDE */
+@media(max-width:1100px){
+  .product-nav{display:none;}
+  .gurjan-section-wrapper{margin-right:0;}
+}
+.gurjan-club-content p{
+  max-width:100%;
+}
+/* WRITE UP FULL WIDTH */
+.gurjan-content p{
+  max-width:100%;
+}
+
+/* BOTTOM LAYOUT */
+.gurjan-bottom{
+  display:flex;
+  gap:15px;
+  margin-bottom:40px;
+}
+
+/* LEFT FEATURES */
+.feature-panel{
+  flex:1;
+}
+
+/* RIGHT PICTURES */
+.feature-pictures{
+  flex:1;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
+  align-items:center;
+}
+
+.feature-pictures img{
+  width:100%;
+  max-width:120px;
+  border-radius:10px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
+}
+.gurjan-title{
+  font-size:48px;
+  font-weight:800;
+  letter-spacing:3px;
+  color:var(--primary);
+  position:relative;
+  margin-bottom:25px;
+  text-transform:uppercase;
+}
+
+/* golden underline accent */
+.gurjan-title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-10px;
+  width:90px;
+  height:4px;
+  background:linear-gradient(90deg,var(--secondary),#c89b3c);
+  border-radius:5px;
+}
+
+/* OFFSET FOR STICKY HEADER */
+:target::before {
+  content:"";
+  display:block;
+  height:100px;   /* approx header height */
+  margin-top:-100px;
+  visibility:hidden;
+}
+.gurjan-section-wrapper {
+  margin-bottom: 60px; /* increase space between each product section */
+}
+html {
+  scroll-padding-top: 120px; /* approx header height */
+  scroll-behavior: smooth;   /* smooth scroll */
+}
+
+</style>
+</head>
+<body>
+<!-- RIGHT SIDE PRODUCT NAV -->
+<div class="product-nav">
+  <h3>Our Range</h3>
+  <a href="#gurjan-club">Gurjan Club</a>
+  <a href="#bwp-platinum">BWP Platinum</a>
+  <a href="#bwr-platinum">BWR Platinum</a>
+  <a href="#mr-platinum">MR Platinum</a>
+  <a href="#calibrated-16mm">16mm Calibrated</a>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div>ISI Certified Company</div>
+  <div>Call Us: +91 98459 41700</div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="#home" class="logo-container">
+    <img src="MWP.png" alt="Maheshwari Logo" class="logo-img"> 
+    <div class="brand-text">
+      <span class="logo-text">Maheshwari Plywoods</span>
+    </div>
+  </a>
+  <nav>
+    <a href="mwpplywood.html">Home</a>
+    <a href="mwpplywood.html" style="color:#7a4a2e;">About Us</a>
+    <a href="mwpplywood.html#about">Who We Are</a>
+    <a href="mwpplywood.html#products">Products</a>
+    <a href="mwpplywood.html#why">Why Us</a>
+    <a href="mwpplywood.html#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- 100% GURJAN PLYWOOD -->
+<section class="gurjan-section-wrapper">
+  <section class="gurjan-section">
+    <div class="gurjan-image">
+      <img src="GU.png" alt="Premium Gurjan Plywood">
+    </div>
+    <div class="gurjan-content gurjan-club-content">
+     <h1 id="gurjan-club" class="gurjan-title">GURJAN CLUB</h1>
+      <p>
+  Made from carefully selected full Gurjan timber, this plywood offers superior strength, long-term durability, and an elegant finish — ideal for premium furniture and luxury interiors.
+</p>
+
+<div class="gurjan-bottom">
+
+  <!-- LEFT FEATURES -->
+  <div class="feature-panel">
+    <div class="feature-card">
+      <h4>Core Strength</h4>
+      <p>100% Gurjan | High Density | Gap Free</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Protection</h4>
+      <p>BWP Bond | Termite Proof | Moisture Safe</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Trust & Grade</h4>
+      <p>ISI Certified | Warranty Backed</p>
+    </div>
+  </div>
+
+  <!-- RIGHT 5 IMAGES -->
+  <div class="feature-pictures">
+    <img src="isi.png">
+    <img src="l.png">
+    <img src="shipping.png">
+    <img src="pngegg.png">
+    <img src="th.avif">
+  </div>
+</div>
+<div class="gurjan-buttons">
+  <button class="btn-primary" onclick="openForm()">Download Certificate</button>
+  <button class="btn-primary" onclick="openForm()">TDS REPORT</button>
+  <button class="btn-outline" onclick="scrollToContact()">Enquire Now</button>
+</div>
+
+    </div>
+  </section>
+</section>
+
+
+<!-- bwr -->
+<section class="gurjan-section-wrapper">
+  <section class="gurjan-section">
+    <div class="gurjan-image">
+      <img src="bwr.png" alt="Premium Gurjan Plywood">
+    </div>
+    <div class="gurjan-content gurjan-club-content">
+     <h1 id="bwr-platinum" class="gurjan-title">BWR Platinum</h1>
+      <p>
+  Made from carefully selected full Gurjan timber, this plywood offers superior strength, long-term durability, and an elegant finish — ideal for premium furniture and luxury interiors.
+</p>
+
+<div class="gurjan-bottom">
+
+  <!-- LEFT FEATURES -->
+  <div class="feature-panel">
+    <div class="feature-card">
+      <h4>Core Strength</h4>
+      <p>100% Gurjan | High Density | Gap Free</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Protection</h4>
+      <p>BWP Bond | Termite Proof | Moisture Safe</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Trust & Grade</h4>
+      <p>ISI Certified | Warranty Backed</p>
+    </div>
+  </div>
+
+  <!-- RIGHT 5 IMAGES -->
+  <div class="feature-pictures">
+    <img src="isi.png">
+    <img src="l.png">
+    <img src="shipping.png">
+    <img src="pngegg.png">
+    <img src="th.avif">
+  </div>
+</div>
+<div class="gurjan-buttons">
+  <button class="btn-primary" onclick="openForm()">Download Certificate</button>
+  <button class="btn-primary" onclick="openForm()">TDS REPORT</button>
+  <button class="btn-outline" onclick="scrollToContact()">Enquire Now</button>
+</div>
+
+    </div>
+  </section>
+</section>
+<!-- BWP  -->
+<section class="gurjan-section-wrapper">
+  <section class="gurjan-section">
+    <div class="gurjan-image">
+      <img src="bwp.png" alt="Premium Gurjan Plywood">
+    </div>
+    <div class="gurjan-content gurjan-club-content">
+     <h1 id="bwp-platinum" class="gurjan-title">BWP PLATINUM</h1>
+      <p>
+  Made from carefully selected full Gurjan timber, this plywood offers superior strength, long-term durability, and an elegant finish — ideal for premium furniture and luxury interiors.
+</p>
+
+<div class="gurjan-bottom">
+
+  <!-- LEFT FEATURES -->
+  <div class="feature-panel">
+    <div class="feature-card">
+      <h4>Core Strength</h4>
+      <p>100% Gurjan | High Density | Gap Free</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Protection</h4>
+      <p>BWP Bond | Termite Proof | Moisture Safe</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Trust & Grade</h4>
+      <p>ISI Certified | Warranty Backed</p>
+    </div>
+  </div>
+
+  <!-- RIGHT 5 IMAGES -->
+  <div class="feature-pictures">
+    <img src="isi.png">
+    <img src="l.png">
+    <img src="shipping.png">
+    <img src="pngegg.png">
+    <img src="th.avif">
+  </div>
+</div>
+<div class="gurjan-buttons">
+  <button class="btn-primary" onclick="openForm()">Download Certificate</button>
+  <button class="btn-primary" onclick="openForm()">TDS REPORT</button>
+  <button class="btn-outline" onclick="scrollToContact()">Enquire Now</button>
+</div>
+
+    </div>
+  </section>
+</section>
+<!-- MR PLATINUM -->
+<section class="gurjan-section-wrapper">
+  <section class="gurjan-section">
+    <div class="gurjan-image">
+      <img src="mr.png" alt="Premium Gurjan Plywood">
+    </div>
+    <div class="gurjan-content gurjan-club-content">
+     <h1 id="mr-platinum" class="gurjan-title">MR PLATINUM</h1>
+      <p>
+  Made from carefully selected full Gurjan timber, this plywood offers superior strength, long-term durability, and an elegant finish — ideal for premium furniture and luxury interiors.
+</p>
+
+<div class="gurjan-bottom">
+
+  <!-- LEFT FEATURES -->
+  <div class="feature-panel">
+    <div class="feature-card">
+      <h4>Core Strength</h4>
+      <p>100% Gurjan | High Density | Gap Free</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Protection</h4>
+      <p>BWP Bond | Termite Proof | Moisture Safe</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Trust & Grade</h4>
+      <p>ISI Certified | Warranty Backed</p>
+    </div>
+  </div>
+
+  <!-- RIGHT 5 IMAGES -->
+  <div class="feature-pictures">
+    <img src="isi.png">
+    <img src="l.png">
+    <img src="shipping.png">
+    <img src="pngegg.png">
+    <img src="th.avif">
+  </div>
+</div>
+<div class="gurjan-buttons">
+  <button class="btn-primary" onclick="openForm()">Download Certificate</button>
+  <button class="btn-primary" onclick="openForm()">TDS REPORT</button>
+  <button class="btn-outline" onclick="scrollToContact()">Enquire Now</button>
+</div>
+
+    </div>
+  </section>
+</section>
+<!-- 16MM -->
+<section class="gurjan-section-wrapper">
+  <section class="gurjan-section">
+    <div class="gurjan-image">
+      <img src="GU.png" alt="Premium Gurjan Plywood">
+    </div>
+    <div class="gurjan-content gurjan-club-content">
+     <h1 id="calibrated-16mm" class="gurjan-title">16MM CALIBRATED</h1>
+      <p>
+  Made from carefully selected full Gurjan timber, this plywood offers superior strength, long-term durability, and an elegant finish — ideal for premium furniture and luxury interiors.
+</p>
+
+<div class="gurjan-bottom">
+
+  <!-- LEFT FEATURES -->
+  <div class="feature-panel">
+    <div class="feature-card">
+      <h4>Core Strength</h4>
+      <p>100% Gurjan | High Density | Gap Free</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Protection</h4>
+      <p>BWP Bond | Termite Proof | Moisture Safe</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Trust & Grade</h4>
+      <p>ISI Certified | Warranty Backed</p>
+    </div>
+  </div>
+
+  <!-- RIGHT 5 IMAGES -->
+  <div class="feature-pictures">
+    <img src="isi.png">
+    <img src="l.png">
+    <img src="shipping.png">
+    <img src="pngegg.png">
+    <img src="th.avif">
+  </div>
+</div>
+<div class="gurjan-buttons">
+  <button class="btn-primary" onclick="openForm()">Download Certificate</button>
+  <button class="btn-primary" onclick="openForm()">TDS REPORT</button>
+  <button class="btn-outline" onclick="scrollToContact()">Enquire Now</button>
+</div>
+
+    </div>
+  </section>
+</section>
+
+<!-- POPUP FORM -->
+<div id="popup" class="popup" onclick="closeForm()">
+  <div class="popup-box" onclick="event.stopPropagation()">
+    <span class="popup-close" onclick="closeForm()">&times;</span>
+    <h2>Download Certificate</h2>
+    <p class="popup-sub">Fill details to continue</p>
+    
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="tel" id="phone" placeholder="Contact Number">
+    <input type="email" id="email" placeholder="Email Address">
+
+    <button class="popup-btn" onclick="sendWhatsApp()">Submit & Download</button>
+  </div>
+</div>
+
+<script>
+// POPUP FORM FUNCTIONS
+function openForm() { document.getElementById('popup').style.display = 'flex'; }
+function closeForm(e){ if(e) e.stopPropagation(); document.getElementById('popup').style.display = 'none'; }
+
+function sendWhatsApp(){
+  var name = document.getElementById("name").value;
+  var phone = document.getElementById("phone").value;
+  var email = document.getElementById("email").value;
+
+  if(!name || !phone || !email){ alert("Please fill all details"); return; }
+
+  var whatsappNumber = "91XXXXXXXXXX"; // apna number
+  var certificateFile = "gurjan-certificate.pdf"; // PDF path
+
+  var msg = "Gurjan Plywood Certificate Request%0A%0A"+
+            "Name: "+name+"%0A"+
+            "Contact: "+phone+"%0A"+
+            "Email: "+email;
+
+  window.open("https://wa.me/"+whatsappNumber+"?text="+msg,"_blank");
+
+  setTimeout(function(){
+    var a = document.createElement("a");
+    a.href = certificateFile;
+    a.download = certificateFile;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  },700);
+
+  closeForm();
+}
+
+function scrollToContact() { window.location.href = 'mwpplywood.html#contact'; }
+
+// SLIDE ANIMATION ON SCROLL
+const sections = document.querySelectorAll('.gurjan-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.querySelector('.gurjan-image').classList.add('slide-in');
+    }
+  });
+}, {threshold: 0.3});
+
+sections.forEach(section => observer.observe(section));
+</script>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    let target = document.querySelector(this.getAttribute('href'));
+    let headerOffset = 100; // header height
+    let elementPosition = target.getBoundingClientRect().top;
+    let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+  });
+});
+</script>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target){
+      const headerOffset = 110; // header height
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>
