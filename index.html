@@ -749,19 +749,6 @@ html, body {
   .hamburger{
     display:flex;
   }
-
-  /* NAV */
-  nav{
-    position:fixed;
-    top:70px;
-    right:-280px;
-    width:260px;
-    height:calc(100vh - 70px);
-    background:#fff;
-    transition:0.4s ease;
-    z-index:9999;
-  }
-
   nav.active{
     right:0;
   }
@@ -1027,18 +1014,30 @@ html {
   grid-template-columns:repeat(3,1fr);
   gap:30px;
 }
-.gallery-item{
-  border-radius:18px;
-  height: 260px;
-  overflow:hidden;
-  box-shadow:0 20px 45px rgba(0,0,0,0.15);
-  transition:0.4s ease;
+/* Gallery Grid Fix */
+.gallery-grid {
+    display: grid !important;
+    /* Ye line ensure karegi ki desktop par 3 columns hi rahein */
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.gallery-item img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
+.gallery-item {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+/* Mobile ke liye 1 column (agar mobile pe 3 dikh rahe hain toh wo chote dikhenge) */
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
 }
 
 .gallery-item:hover{
@@ -1053,12 +1052,6 @@ html {
     overflow-x: hidden !important;
     width: 100%;
   }
-  /* MOBILE ONLY */
-@media(max-width:900px){
-  .gallery-grid{
-    grid-template-columns:1fr;
-  }
-}
 
   /* GLOBAL PADDING FIX */
   section,
@@ -1148,17 +1141,26 @@ html {
   nav.active {
     right: 0;
   }
-  /* 🔥 FINAL NAV RESET – DO NOT MOVE */
-nav ul,
-nav ul li{
-  list-style-type: none !important;
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+ /* Navigation Dots Fix */
+nav ul, 
+nav li, 
+.menu, 
+.menu li, 
+.dropdown-menu, 
+.dropdown-menu li, 
+.dropdown-submenu, 
+.dropdown-submenu li {
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li::marker{
-  content: none !important;
+/* Extra safety for markers */
+nav ul li::before, 
+nav ul li::marker {
+    content: none !important;
+    display: none !important;
 }
 
 
@@ -2245,6 +2247,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
