@@ -1115,7 +1115,58 @@ html {
         color: var(--primary) !important;
     }
 }
-  
+/* ===== DROPDOWN REPAIR CODE ===== */
+@media (min-width: 901px) {
+    /* List ko ek ke niche ek (Vertical) karne ke liye */
+    nav ul .dropdown-menu {
+        display: none !important; 
+        flex-direction: column !important; /* Items line mein nahi, column mein aayenge */
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        background: #ffffff !important;
+        min-width: 250px !important; /* Width thodi badhayi hai */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+        padding: 10px 0 !important;
+        z-index: 9999 !important;
+    }
+
+    /* Hover par menu dikhane ke liye */
+    .dropdown:hover > .dropdown-menu {
+        display: flex !important;
+    }
+
+    /* Items ko poori width dene ke liye taaki wo faile nahi */
+    .dropdown-menu li {
+        width: 100% !important;
+        display: block !important;
+        text-align: left !important;
+    }
+
+    .dropdown-menu li a {
+        width: 100% !important;
+        padding: 12px 20px !important;
+        display: block !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+        white-space: nowrap !important; /* Text ek hi line mein rahega */
+    }
+
+    /* Sub-menu (Plywood ke andar jo hai) ko side mein kholne ke liye */
+    .dropdown-submenu {
+        display: none !important;
+        position: absolute !important;
+        left: 100% !important; 
+        top: 0 !important;
+        background: #fff !important;
+        min-width: 220px !important;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+        flex-direction: column !important;
+    }
+
+    .dropdown-sub:hover > .dropdown-submenu {
+        display: flex !important;
+    }
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -1639,6 +1690,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 
 </body>
 </html>
+
 
 
 
