@@ -1055,41 +1055,38 @@ html {
   nav.active {
     right: 0;
   }
-/* First-level dropdown */
-/* First-level dropdown menu (vertical) */
+.menu li.dropdown,
+.menu li.dropdown-sub {
+  position: relative; /* Must for absolute dropdown */
+}
+
 .dropdown-menu {
-  display: none;
-  flex-direction: column; /* vertical */
-  position: absolute;
+  display: none;       /* hidden by default */
+  position: absolute;  /* relative to parent li */
   top: 100%;
   left: 0;
   background: #fff;
-  min-width: 220px;
-  padding: 10px 0;
-  list-style: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  min-width: 180px;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   z-index: 999;
 }
 
-/* Nested dropdown (submenus) */
 .dropdown-submenu {
   display: none;
-  flex-direction: column;
   position: absolute;
   top: 0;
-  left: 100%; /* opens to right */
+  left: 100%;
   background: #fff;
-  min-width: 200px;
-  padding: 10px 0;
-  list-style: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  min-width: 180px;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   z-index: 999;
 }
 
-/* Show dropdown on hover */
 .dropdown:hover > .dropdown-menu,
 .dropdown-sub:hover > .dropdown-submenu {
-  display: flex;
+  display: flex;       /* vertical dropdown */
   flex-direction: column;
 }
 
@@ -1638,6 +1635,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
