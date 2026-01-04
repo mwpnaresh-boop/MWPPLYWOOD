@@ -119,22 +119,32 @@ header{
   top:0;
   z-index:1000;
 }
-.logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.logo-img { height: 55px; }
-.logo-text { font-size: 22px; font-weight: 500; color: var(--primary); text-transform: uppercase; }
-.since {
-  display: block;
-  font-size: 13px;
-  color: #7a5e12;
-  letter-spacing: 4px;
-  font-weight: 700;
-  text-transform: uppercase;
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
 }
-@media(max-width:600px){
-  .since{
-    font-size:12px;
-    letter-spacing:2px;
-  }
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-text {
+    font-size: clamp(16px, 4vw, 22px); /* Scales based on screen size */
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.2;
+}
+
+.since {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #7a5e12;
+    font-weight: 600;
+}
 }
 /* SLIDER */
 .slider{position:relative; height:70vh; overflow:hidden;}
@@ -1136,6 +1146,44 @@ header ul.menu a {
     text-decoration: none !important;
     white-space: nowrap !important;
 }
+  /* Mobile Navigation Fix */
+@media (max-width: 900px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide off-screen */
+        width: 280px;
+        height: 100vh;
+        background: #fff;
+        z-index: 1000;
+        transition: 0.4s right ease;
+        padding: 80px 20px 20px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .navbar.active {
+        right: 0; /* Slide in */
+    }
+
+    .menu {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+    }
+
+    /* Remove dots and markers specifically for mobile */
+    .menu li {
+        list-style: none !important;
+        width: 100%;
+    }
+
+    .menu a {
+        display: block;
+        padding: 10px 0;
+        font-size: 18px;
+        border-bottom: 1px solid #eee;
+    }
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -1660,8 +1708,30 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
   });
 });
 </script>
+  <script>
+  const hamburger = document.getElementById('hamburger');
+const navbar = document.querySelector('.navbar');
+
+hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    
+    // Animate Hamburger to 'X'
+    const spans = hamburger.querySelectorAll('span');
+    spans[0].style.transform = navbar.classList.contains('active') ? 'rotate(45deg) translate(5px, 5px)' : 'none';
+    spans[1].style.opacity = navbar.classList.contains('active') ? '0' : '1';
+    spans[2].style.transform = navbar.classList.contains('active') ? 'rotate(-45deg) translate(7px, -7px)' : 'none';
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+    });
+});
+    </script>
 </body>
 </html>
+
 
 
 
