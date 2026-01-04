@@ -1714,8 +1714,33 @@ document.querySelectorAll('.dropdown-sub > a').forEach(subDrop => {
   });
 });
 </script>
+  <script>
+/* ===============================
+   MOBILE MENU AUTO CLOSE FIX
+================================ */
+
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+
+    // Mobile only
+    if (window.innerWidth <= 900) {
+
+      // Close main nav
+      document.querySelector('nav').classList.remove('active');
+
+      // Close all dropdowns
+      document.querySelectorAll('.dropdown, .dropdown-sub').forEach(item => {
+        item.classList.remove('active');
+      });
+
+    }
+  });
+});
+</script>
+
 </body>
 </html>
+
 
 
 
