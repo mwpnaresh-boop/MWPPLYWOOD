@@ -674,37 +674,49 @@ html, body {
 .menu li {
   position: relative;
 }
+/* ===== DESKTOP DROPDOWN FINAL FIX ===== */
+@media (min-width: 901px) {
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  min-width: 220px;
-  border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-  transition: 0.3s ease;
-  z-index: 2000;
-}
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+    z-index: 9999;
+  }
 
-.dropdown:hover > .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+  .dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 
-.dropdown-menu li {
-  padding: 0;
-}
+  .dropdown-submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 220px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: 0.3s ease;
+  }
 
-.dropdown-menu a {
-  display: block;
-  padding: 12px 18px;
-  color: var(--primary);
-  font-weight: 500;
+  .dropdown-sub:hover > .dropdown-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
 }
 
 .dropdown-menu a:hover {
@@ -1566,7 +1578,7 @@ html {
       <h3>Visit Our Showroom</h3>
       <div class="map-box">
         <iframe
-  src="https://www.google.com/maps?q=Maheshwari%20Plywoods%20Rajajinagar&output=embed"
+  src="https://www.google.com/https://maps.app.goo.gl/GfkTYGmC5vN1FhPP9"
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade">
 </iframe>
@@ -1765,6 +1777,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 
 </body>
 </html>
+
 
 
 
