@@ -1009,44 +1009,34 @@ html {
 }
 
 /* DESKTOP – DEFAULT */
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-}
-/* Gallery Grid Fix */
+/* Gallery ko 3-column layout mein laane ke liye */
 .gallery-grid {
     display: grid !important;
-    /* Ye line ensure karegi ki desktop par 3 columns hi rahein */
-    grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    padding: 20px 0 !important;
+    width: 100% !important;
 }
 
 .gallery-item {
-    width: 100%;
-    height: 260px;
-    overflow: hidden;
-    border-radius: 18px;
+    width: 100% !important;
+    height: 300px !important; /* Image ki height fix */
 }
 
-/* Mobile ke liye 1 column (agar mobile pe 3 dikh rahe hain toh wo chote dikhenge) */
-@media (max-width: 900px) {
+.gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Photo kategi nahi, set ho jayegi */
+}
+
+/* Mobile ke liye safety (1 column) */
+@media (max-width: 768px) {
     .gallery-grid {
         grid-template-columns: 1fr !important;
-        gap: 20px;
     }
-}
-
-.gallery-item:hover{
-  transform:translateY(-12px);
-  box-shadow:0 30px 65px rgba(122,94,18,0.35);
-}
-
-.gallery-item:hover img{
-  transform:scale(1.08);
+    header nav ul.menu {
+        flex-direction: column !important; /* Mobile menu setting */
+    }
 }
   html, body {
     overflow-x: hidden !important;
@@ -1141,29 +1131,30 @@ html {
   nav.active {
     right: 0;
   }
- /* Navigation Dots Fix */
-nav ul, 
-nav li, 
-.menu, 
-.menu li, 
-.dropdown-menu, 
-.dropdown-menu li, 
-.dropdown-submenu, 
-.dropdown-submenu li {
+/* Navigation poora sahi karne ke liye */
+header nav ul.menu {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 20px !important; /* Items ke beech gap */
     list-style: none !important;
-    list-style-type: none !important;
-    margin: 0;
-    padding: 0;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-/* Extra safety for markers */
-nav ul li::before, 
-nav ul li::marker {
+header nav ul.menu li {
+    list-style: none !important;
+    display: block !important;
+}
+
+header nav ul.menu li::marker {
     content: none !important;
-    display: none !important;
 }
 
-
+header nav a {
+    text-decoration: none !important;
+    white-space: nowrap !important; /* Text line break nahi hoga */
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -1690,6 +1681,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
