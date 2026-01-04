@@ -1056,6 +1056,7 @@ html {
     right: 0;
   }
 /* First-level dropdown */
+/* First-level dropdown menu (vertical) */
 .dropdown-menu {
   display: none;
   flex-direction: column; /* vertical */
@@ -1070,13 +1071,13 @@ html {
   z-index: 999;
 }
 
-/* Second-level dropdown */
+/* Nested dropdown (submenus) */
 .dropdown-submenu {
   display: none;
-  flex-direction: column; /* vertical */
+  flex-direction: column;
   position: absolute;
   top: 0;
-  left: 100%; /* open to the right */
+  left: 100%; /* opens to right */
   background: #fff;
   min-width: 200px;
   padding: 10px 0;
@@ -1085,35 +1086,12 @@ html {
   z-index: 999;
 }
 
-/* Hover effects for desktop */
+/* Show dropdown on hover */
 .dropdown:hover > .dropdown-menu,
 .dropdown-sub:hover > .dropdown-submenu {
   display: flex;
   flex-direction: column;
 }
-
-/* Dropdown links */
-.dropdown-menu li a,
-.dropdown-submenu li a {
-  display: block;
-  padding: 10px 20px;
-  color: #333;
-  text-decoration: none;
-  border-bottom: 1px solid #eee;
-}
-
-.dropdown-menu li:last-child a,
-.dropdown-submenu li:last-child a {
-  border-bottom: none;
-}
-
-/* Optional: Hover color */
-.dropdown-menu li a:hover,
-.dropdown-submenu li a:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
 
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -1146,32 +1124,22 @@ html {
   <ul class="menu">
     <li><a href="#home">Home</a></li>
 
-   <li class="dropdown">
-      <a href="#products">Our Product Range <i class="fa fa-chevron-down"></i></a>
-
-     <li class="dropdown">
-  <a href="#products">Our Product Range <i class="fa fa-chevron-down"></i></a>
-  <ul class="dropdown-menu">
-    <li><a href="GURJAN CLUB.html#gurjan-club">Gurjan Club</a></li>
-    <li><a href="GURJAN CLUB.html#bwr-platinum">BWR Platinum</a></li>
-    <li><a href="GURJAN CLUB.html#bwp-platinum">BWP Platinum</a></li>
-    <li><a href="GURJAN CLUB.html#mr-platinum">MR Platinum</a></li>
-    <li><a href="GURJAN CLUB.html#calibrated-16mm">16mm Calibrated</a></li>
-  </ul>
-</li>
-
-<li class="dropdown-sub">
-  <a href="#">Veneers <i class="fa fa-angle-right"></i></a>
-  <ul class="dropdown-submenu">
-    <li><a href="#">Natural Veneers</a></li>
-    <li><a href="#">Teak Veneers</a></li>
-  </ul>
-</li>
-
-
+    <li class="dropdown">
+      <a href="#">Our Product Range <i class="fa fa-chevron-down"></i></a>
+      <ul class="dropdown-menu">
+        <!-- Plywood -->
+        <li class="dropdown-sub">
+          <a href="#">Plywood <i class="fa fa-angle-right"></i></a>
+          <ul class="dropdown-submenu">
+            <li><a href="GURJAN CLUB.html#gurjan-club">Gurjan Club</a></li>
+            <li><a href="GURJAN CLUB.html#bwr-platinum">BWR Platinum</a></li>
+            <li><a href="GURJAN CLUB.html#bwp-platinum">BWP Platinum</a></li>
+            <li><a href="GURJAN CLUB.html#mr-platinum">MR Platinum</a></li>
+            <li><a href="GURJAN CLUB.html#calibrated-16mm">16mm Calibrated</a></li>
+          </ul>
         </li>
 
-        <!-- VENEERS -->
+        <!-- Veneers -->
         <li class="dropdown-sub">
           <a href="#">Veneers <i class="fa fa-angle-right"></i></a>
           <ul class="dropdown-submenu">
@@ -1180,17 +1148,24 @@ html {
           </ul>
         </li>
 
+        <!-- Pinewood -->
         <li><a href="#">Pinewood</a></li>
-        <li><a href="#">Laminates</a></li>
-        <li><a href="#">Flexi Ply</a></li>
 
+        <!-- Laminates -->
+        <li><a href="#">Laminates</a></li>
+
+        <!-- Flexi Ply -->
+        <li><a href="#">Flexi Ply</a></li>
       </ul>
+    </li>
+
     <li><a href="#why-us">Why Us</a></li>
     <li><a href="#">Decoratives</a></li>
     <li><a href="about.html">About Us</a></li>
     <li><a href="#contact">Contact Us</a></li>
   </ul>
 </nav>
+
 
 <div class="hamburger" id="hamburger">
   <span></span>
@@ -1663,6 +1638,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
