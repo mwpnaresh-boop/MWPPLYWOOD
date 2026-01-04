@@ -675,97 +675,6 @@ html, body {
   position: relative;
 }
 /* ===== DESKTOP DROPDOWN FINAL FIX ===== */
-
-  .dropdown-submenu {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    min-width: 220px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(10px);
-    transition: 0.3s ease;
-  }
-
-  .dropdown-sub:hover > .dropdown-submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-  }
-}
-
-.dropdown-menu a:hover {
-  background: var(--bg-light);
-}
-
-/* SUB MENU */
-.dropdown-submenu {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background: #fff;
-  min-width: 220px;
-  border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(15px);
-  transition: 0.3s ease;
-}
-
-.dropdown-sub:hover > .dropdown-submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-
-/* ICON ALIGN */
-.dropdown i {
-  font-size: 12px;
-  margin-left: 6px;
-}
-@media (min-width: 901px) {
-  .dropdown-menu,
-  .dropdown-submenu {
-    display: none;
-  }
-
-  .dropdown:hover > .dropdown-menu {
-    display: block;
-  }
-
-  .dropdown-sub:hover > .dropdown-submenu {
-    display: block;
-  }
-}
-
-/* ===== MOBILE SUPPORT ===== */
-@media(max-width:900px){
-  .dropdown-menu,
-  .dropdown-submenu{
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    background: transparent;
-    padding-left: 15px;
-  }
-
-  .dropdown:hover > .dropdown-menu,
-  .dropdown-sub:hover > .dropdown-submenu{
-    display: block;
-  }
-}
-nav .menu > li {
-  position: relative;
-}
-.dropdown-submenu {
-  flex-direction: column !important;
-}
 .products-container {
   display: flex;       /* ya grid, depends on preference */
   flex-wrap: wrap;     /* taaki next row me aa sake agar space kam ho */
@@ -980,69 +889,6 @@ html {
     justify-content:center;
   }
 }
-  /* ===== DESKTOP DROPDOWN ===== */
-@media (min-width: 901px) {
-
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 220px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(12px);
-    transition: 0.3s ease;
-    z-index: 3000;
-  }
-
-  .dropdown:hover > .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .dropdown-submenu {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    min-width: 220px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(12px);
-    transition: 0.3s ease;
-  }
-
-  .dropdown-sub:hover > .dropdown-submenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-  }
-}
-@media (max-width: 900px) {
-
-  .dropdown-menu,
-  .dropdown-submenu {
-    position: static;
-    display: none;
-    background: transparent;
-    box-shadow: none;
-    padding-left: 15px;
-  }
-
-  .dropdown.active > .dropdown-menu {
-    display: block;
-  }
-
-  .dropdown-sub.active > .dropdown-submenu {
-    display: block;
-  }
-}
 
 /* ===== INTERIOR GALLERY SECTION ===== */
 .interior-gallery{
@@ -1213,55 +1059,6 @@ html {
 .dropdown-submenu {
   border: 1px solid rgba(0,0,0,0.06);
 }
-/* ===== DROPDOWN UI POLISH ===== */
-
-/* Dropdown container ko style karne ke liye */
-.dropdown-menu {
-    min-width: 200px;           /* Width thodi badhayein taaki text cramped na lage */
-    padding: 10px 0;            /* Top aur bottom mein thodi jagah */
-    border-radius: 8px;         /* Modern look ke liye corners round karein */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Halka shadow depth dene ke liye */
-    border: none;               /* Agar purani border achhi nahi lag rahi toh hata dein */
-    text-align: left;           /* Text ko left align rakhein */
-}
-
-/* Individual items (links) ke liye */
-.dropdown-menu a {
-    padding: 10px 20px;         /* Text ke charo taraf breathing space dein */
-    display: block;
-    color: #333;                /* Dark color text ke liye */
-    transition: background 0.3s; /* Hover effect ko smooth banane ke liye */
-}
-
-/* Hover effect */
-.dropdown-menu a:hover {
-    background-color: #f8f9fa;  /* Halka grey background hover par */
-    color: #DAA520;             /* Aapke brand ka gold/yellow color yahan use karein */
-}
-
-/* ===== SUB MENU POLISH ===== */
-.dropdown-submenu {
-  min-width: 240px;
-  padding: 12px 0;
-  margin-left: 10px;         /* parent se gap */
-  border-radius: 12px;
-}
-
-.dropdown-submenu li a {
-  padding: 10px 22px;
-}
-
-  /* ❌ REMOVE FORCE DROPDOWN */
-  .dropdown-menu,
-  .dropdown-submenu {
-    display: none !important;
-  }
-
-  .dropdown.active > .dropdown-menu {
-    display: block !important;
-  }
-
-}
 .hamburger.active span:nth-child(1){
   transform: rotate(45deg) translate(5px,5px);
 }
@@ -1275,6 +1072,113 @@ html {
   .gallery-item{
     height:200px;
   }
+}
+  /* ===== DROPDOWN FIX (DESKTOP & MOBILE) ===== */
+
+/* Desktop Layout (901px se upar) */
+@media (min-width: 901px) {
+    nav ul {
+        display: flex;
+        align-items: center;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    /* Main Dropdown Menu */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #ffffff;
+        min-width: 220px;
+        list-style: none;
+        padding: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        display: block !important; /* visibility control via opacity */
+    }
+
+    .dropdown:hover > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Submenu (Plywood > etc) */
+    .dropdown-submenu {
+        position: absolute;
+        top: 0;
+        left: 100%; /* Side mein khulega */
+        background: #ffffff;
+        min-width: 220px;
+        list-style: none;
+        padding: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(10px);
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-sub {
+        position: relative;
+    }
+
+    .dropdown-sub:hover > .dropdown-submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    /* Links Styling */
+    .dropdown-menu li a {
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between; /* Arrow ko right side lane ke liye */
+        align-items: center;
+        color: #333;
+        font-size: 15px;
+        text-decoration: none;
+        transition: 0.2s;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .dropdown-menu li:last-child a { border-bottom: none; }
+
+    .dropdown-menu a:hover {
+        background: #fcf8e8;
+        color: var(--primary);
+        padding-left: 25px; /* Hover par halka move hoga professional dikhne ke liye */
+    }
+}
+
+/* Mobile Layout (900px se niche) */
+@media (max-width: 900px) {
+    .dropdown-menu, .dropdown-submenu {
+        display: none; /* Mobile par click hone par hi dikhega */
+        list-style: none;
+        background: #f9f9f9;
+        padding-left: 15px;
+    }
+
+    .dropdown.active > .dropdown-menu,
+    .dropdown-sub.active > .dropdown-submenu {
+        display: block;
+    }
+
+    .dropdown-menu li a {
+        padding: 12px;
+        display: block;
+        border-bottom: 1px solid #eee;
+    }
 }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -1799,6 +1703,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 
 </body>
 </html>
+
 
 
 
