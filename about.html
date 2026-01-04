@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maheshwari Plywoods | Premium Wood Solutions</title>
+
+<style>
+:root {
+  --primary: #7a4a2e;
+  --secondary: #e6c17c;
+  --text-dark: #333;
+  --bg-light: #f4f4f4;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', Arial, sans-serif;}
+body{background: var(--bg-light); overflow-x:hidden; scroll-behavior:smooth;}
+
+/* TOP BAR */
+.topbar{
+  background: var(--primary);
+  color:#fff;
+  padding:8px 40px;
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  padding:10px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+/* LOGO SECTION */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Logo aur Text ke beech ki doori */
+  text-decoration: none;
+}
+.logo-img {
+  height: 50px; /* Logo ki height yahan se control karein */
+  width: auto;
+}
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color: #555;
+  font-size:15px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+nav a:hover{color: var(--primary);}
+
+/* SLIDER */
+.slider{position:relative; height:75vh; overflow:hidden;}
+.slides{display:flex; height:100%; transition: transform 0.8s ease-in-out;}
+.slide{
+  min-width:100%;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  position:relative;
+}
+.slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+}
+.slide-content{position:relative; z-index:2; padding: 20px;}
+.slide h1{font-size:48px; color: var(--secondary); margin-bottom:15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);}
+.slide p{font-size:22px;}
+
+/* ARROWS */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.3);
+  color:#fff;
+  font-size:24px;
+  padding:15px 20px;
+  cursor:pointer;
+  transition: 0.3s;
+  border-radius: 50%;
+  z-index: 10;
+}
+.arrow:hover{background: var(--primary);}
+.arrow.left{left:20px;}
+.arrow.right{right:20px;}
+
+/* SECTIONS */
+.section{padding:80px 10%; background:#fff;}
+.section:nth-child(even){background:#fdfdfd;}
+.section h2{text-align:center; color: var(--primary); margin-bottom:30px; font-size:32px;}
+.section p{text-align:center; font-size:18px; color:#666; line-height: 1.6; max-width: 800px; margin: 0 auto;}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:5px;
+  margin-top:40px;
+}
+.product-box{
+  background:#fff;
+  padding:40px 20px;
+  text-align:center;
+  border-bottom: 4px solid var(--secondary);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  font-weight:bold;
+  color: var(--primary);
+  transition: 0.3s;
+}
+.product-box:hover { transform: translateY(-5px); background: #fcfcfc; }
+
+/* FOOTER */
+footer{background: var(--primary); color:#fff; text-align:center; padding:40px 20px;}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; padding: 20px; gap: 15px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    nav a { margin: 0; font-size: 14px; }
+    .slide h1 { font-size: 32px; }
+}
+</style>
+</head>
+
+<body>
+<div class="topbar">
+  <div>ISI Certified Company</div>
+  <div>Call Us: +91 98459 41700</div>
+</div>
+
+<header>
+  <a href="#home" class="logo-container">
+  <img src="MWP.png" alt="Maheshwari Logo" class="logo-img"> 
+  <div class="brand-text">
+    <span class="logo-text">Maheshwari Plywoods</span>
+  </div>
+  <nav>
+    <a href="mwpplywood.html">Home</a>
+    <a href="mwpplywood.html" style="color:#7a4a2e;">About Us</a>
+    <a href="mwpplywood.html#about">Who We Are</a>
+    <a href="mwpplywood.html#products">Products</a>
+    <a href="mwpplywood.html#why">Why Us</a>
+    <a href="mwpplywood.html#contact">Contact</a>
+  </nav>
+</header>
+<section class="about-us-section">
+  <div class="about-container">
+    <!-- Logo and Boss Images -->
+    <div class="about-header">
+        <img src="MWP.png" alt="MWP Logo" class="logo-img" id="tree-logo">
+        <div class="boss-images">
+        </div>
+      </div>
+      <h1 class="fade-slide">Maheshwari Plywoods</h1>
+    </div>
+
+    <!-- About Text -->
+    <div class="about-text">
+      <p class="fade-slide">Maheshwari Plywoods is a trusted manufacturer and supplier of premium plywoods, veneers, laminates, and bending ply. With decades of expertise, we combine engineering strength, sustainable practices, and aesthetic excellence in every product.</p>
+      <p class="fade-slide">Our mission is to deliver high-quality wood solutions that are eco-friendly, termite-resistant, and designed to last generations. Trusted by architects, developers, and homeowners alike, Maheshwari Plywoods continues to innovate with precision and care.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Base Styles */
+.about-us-section {
+  background-color: #fdf9f4;
+  padding: 80px 10%;
+  font-family: Arial, sans-serif;
+  color: #333;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 100px;
+  height: auto;
+  transition: transform 1s ease;
+}
+
+.boss-images {
+  display: flex;
+  gap: 15px;
+}
+
+.boss-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #7a4a2e;
+}
+
+.about-header h1 {
+  font-size: 36px;
+  color: #7a4a2e;
+  margin: 10px 0;
+}
+
+.subtitle {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #695b3f;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.about-text p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 20px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #555;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animations */
+@keyframes pulse-img {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.pulse {
+  animation: pulse-img 2s infinite;
+}
+
+.fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+/* Tree rotation on load */
+@keyframes rotate-tree {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .logo-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .boss-images {
+    justify-content: center;
+  }
+}
+</style>
+
+<script>
+// Animate tree logo on load
+window.addEventListener('load', () => {
+  const tree = document.getElementById('tree-logo');
+   tree.classList.add('visible'); 
+});
+
+// Scroll reveal for text
+const fadeElements = document.querySelectorAll('.fade-slide');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.2 });
+
+fadeElements.forEach(el => observer.observe(el));
+</script>
+<section class="journey-section"> <div class="journey-header"> <span class="subtitle">ESTABLISHED 1993</span> <h2>The Legacy of Excellence</h2> <div class="gold-line"></div> <p>Decades of engineering strength and crafting trust in every fiber of wood.</p> </div> <div class="timeline-container"> <div class="milestone left"> <div class="m-number">1993</div> <div class="m-content"> <h3>The Genesis</h3> <p>Maheshwari Plywoods was founded with a singular vision: to redefine the standards of structural integrity and aesthetic beauty in the Indian timber industry.</p> </div> </div> <div class="milestone right"> <div class="m-number">2002</div> <div class="m-content"> <h3>Industrial Integration</h3> <p>Strategically expanded our manufacturing footprint, integrating advanced hot-press technology to deliver superior bonding strength across all product lines.</p> </div> </div> <div class="milestone left"> <div class="m-number">2010</div> <div class="m-content"> <h3>Quality Benchmark</h3> <p>Achieved prestigious ISI certifications, cementing our reputation as a trusted partner for architects and developers nationwide.</p> </div> </div> <div class="milestone right"> <div class="m-number">2018</div> <div class="m-content"> <h3>Design Evolution</h3> <p>Launched a premium range of decorative veneers and high-pressure laminates, merging architectural durability with modern interior design trends.</p> </div> </div> <div class="milestone left active"> <div class="m-number pulse">2025</div> <div class="m-content"> <h3>Future-Ready Innovation</h3> <p>Leading the market with eco-friendly, borer-proof, and anti-termite wood solutions, driven by sustainable practices and German-tech precision.</p> </div> </div> </div> </section> <style> /* PREMIUM STYLES */ .journey-section { background-color: #ffffff; padding: 100px 10%; color: #333; } .journey-header { text-align: center; margin-bottom: 80px; } .journey-header .subtitle { letter-spacing: 4px; font-size: 13px; color: #7a4a2e; font-weight: 700; } .journey-header h2 { font-size: 42px; color: #2c1a10; margin-top: 10px; } .gold-line { width: 60px; height: 3px; background: #e6c17c; margin: 20px auto; } .timeline-container { position: relative; max-width: 1200px; margin: 0 auto; } /* Vertical Spine */ .timeline-container::after { content: ''; position: absolute; width: 2px; background: #eee; top: 0; bottom: 0; left: 50%; margin-left: -1px; } .milestone { padding: 20px 60px; position: relative; width: 50%; box-sizing: border-box; transition: 0.5s ease; } /* Side Orientation */ .milestone.left { left: 0; text-align: right; } .milestone.right { left: 50%; text-align: left; } /* Timeline Circles */ .m-number { position: absolute; width: 60px; height: 60px; background: #fff; border: 2px solid #e6c17c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #7a4a2e; top: 20px; z-index: 5; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); } .left .m-number { right: -30px; } .right .m-number { left: -30px; } /* Content Card */ .m-content { background: #fcfcfc; padding: 35px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 1px solid #f0f0f0; transition: 0.4s; } .milestone:hover .m-content { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(122, 74, 46, 0.1); } .m-content h3 { color: #7a4a2e; font-size: 22px; margin-bottom: 12px; letter-spacing: 1px; } .m-content p { font-size: 15px; color: #666; line-height: 1.8; margin: 0 !important; } /* Current Year Styling */ .milestone.active .m-number { background: #7a4a2e; color: #fff; border-color: #7a4a2e; } .pulse { animation: pulse-ring 2s infinite; } @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0px rgba(122, 74, 46, 0.4); } 100% { box-shadow: 0 0 0 15px rgba(122, 74, 46, 0); } } /* Responsive */ @media screen and (max-width: 768px) { .timeline-container::after { left: 31px; } .milestone { width: 100%; padding-left: 80px; padding-right: 20px; text-align: left !important; } .milestone.right { left: 0%; } .m-number { left: 0 !important; } }
