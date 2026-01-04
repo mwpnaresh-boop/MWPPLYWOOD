@@ -136,14 +136,6 @@ header{
     letter-spacing:2px;
   }
 }
-
-
-nav > ul.menu {
-  display: flex;
-}
-nav a { text-decoration: none; color: var(--primary); font-weight: 600; transition: 0.3s; }
-nav a:hover { color: var(--accent); }
-
 /* SLIDER */
 .slider{position:relative; height:70vh; overflow:hidden;}
 .slides{display:flex; height:100%; transition: transform 0.8s ease-in-out;}
@@ -752,13 +744,6 @@ html, body {
   nav.active{
     right:0;
   }
-
-  nav > ul.menu{
-    flex-direction:column;
-    gap:18px;
-    padding-left:20px;
-  }
-
   /* DROPDOWN */
   .dropdown-menu,
   .dropdown-submenu{
@@ -1034,9 +1019,7 @@ html {
     .gallery-grid {
         grid-template-columns: 1fr !important;
     }
-    header nav ul.menu {
-        flex-direction: column !important; /* Mobile menu setting */
-    }
+    
 }
   html, body {
     overflow-x: hidden !important;
@@ -1132,28 +1115,38 @@ html {
     right: 0;
   }
 /* Navigation poora sahi karne ke liye */
-header nav ul.menu {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 20px !important; /* Items ke beech gap */
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-header nav ul.menu li {
-    list-style: none !important;
+/* --- NAV DOTS & LAYOUT FORCE FIX --- */
+header nav.navbar {
     display: block !important;
 }
 
-header nav ul.menu li::marker {
-    content: none !important;
+header ul.menu {
+    display: flex !important;
+    flex-direction: row !important;
+    list-style: none !important; /* Dots hatane ke liye */
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 20px !important;
+    align-items: center !important;
 }
 
-header nav a {
+header ul.menu li {
+    list-style: none !important;
+    list-style-type: none !important;
+    display: inline-block !important;
+    position: relative;
+}
+
+/* Dots ko har haal me gayab karne ke liye */
+header ul.menu li::marker,
+header ul.menu li::before {
+    content: none !important;
+    display: none !important;
+}
+
+header ul.menu a {
     text-decoration: none !important;
-    white-space: nowrap !important; /* Text line break nahi hoga */
+    white-space: nowrap !important;
 }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -1681,6 +1674,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
