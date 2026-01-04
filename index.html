@@ -1055,131 +1055,67 @@ html {
   nav.active {
     right: 0;
   }
-  .dropdown-menu,
-.dropdown-submenu {
-  border: 1px solid rgba(0,0,0,0.06);
-}
-.hamburger.active span:nth-child(1){
-  transform: rotate(45deg) translate(5px,5px);
-}
-.hamburger.active span:nth-child(2){
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3){
-  transform: rotate(-45deg) translate(6px,-6px);
-}
-@media(max-width:900px){
-  .gallery-item{
-    height:200px;
-  }
-}
-  /* ===== DROPDOWN FIX (DESKTOP & MOBILE) ===== */
+  /* ===== MEGA FIX: Dropdown ko wapas vertical karne ke liye ===== */
 
-/* Desktop Layout (901px se upar) */
 @media (min-width: 901px) {
-    nav ul {
-        display: flex;
-        align-items: center;
-    }
-
-    .dropdown {
-        position: relative;
-    }
-
-    /* Main Dropdown Menu */
+    /* 1. Ensure dropdown menu niche khule aur items line mein na ho */
     .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #ffffff;
-        min-width: 220px;
-        list-style: none;
-        padding: 10px 0;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(15px);
-        transition: all 0.3s ease;
-        z-index: 1000;
-        display: block !important; /* visibility control via opacity */
+        display: none !important; /* Default hidden */
+        flex-direction: column !important; /* Items ek ke niche ek aayenge */
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        background: #fff !important;
+        min-width: 220px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+        padding: 10px 0 !important;
+        list-style: none !important;
     }
 
+    /* 2. Hover karne par dropdown dikhayen */
     .dropdown:hover > .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+        display: flex !important; /* Flex use karke direction column ensure karenge */
     }
 
-    /* Submenu (Plywood > etc) */
+    /* 3. Dropdown ke andar ke LI items ko poori width dein */
+    .dropdown-menu li {
+        width: 100% !important;
+        display: block !important;
+        position: relative !important;
+    }
+
+    /* 4. Sub-menu (Plywood > Gurjan etc.) ko side mein bhejien */
     .dropdown-submenu {
-        position: absolute;
-        top: 0;
-        left: 100%; /* Side mein khulega */
-        background: #ffffff;
-        min-width: 220px;
-        list-style: none;
-        padding: 10px 0;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(10px);
-        transition: all 0.3s ease;
-    }
-
-    .dropdown-sub {
-        position: relative;
+        display: none !important;
+        flex-direction: column !important;
+        position: absolute !important;
+        left: 100% !important; /* Right side mein khulega */
+        top: 0 !important;
+        background: #fff !important;
+        min-width: 200px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
     }
 
     .dropdown-sub:hover > .dropdown-submenu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(0);
+        display: flex !important;
     }
 
-    /* Links Styling */
+    /* 5. Links ki padding aur styling */
     .dropdown-menu li a {
-        padding: 12px 20px;
-        display: flex;
-        justify-content: space-between; /* Arrow ko right side lane ke liye */
-        align-items: center;
-        color: #333;
-        font-size: 15px;
-        text-decoration: none;
-        transition: 0.2s;
-        border-bottom: 1px solid #f0f0f0;
+        padding: 12px 20px !important;
+        color: #333 !important;
+        text-decoration: none !important;
+        display: block !important;
+        border-bottom: 1px solid #eee !important;
+        white-space: nowrap !important; /* Text wrap nahi hoga */
     }
 
-    .dropdown-menu li:last-child a { border-bottom: none; }
-
-    .dropdown-menu a:hover {
-        background: #fcf8e8;
-        color: var(--primary);
-        padding-left: 25px; /* Hover par halka move hoga professional dikhne ke liye */
+    .dropdown-menu li a:hover {
+        background-color: #f8f8f8 !important;
+        color: var(--primary) !important;
     }
 }
-
-/* Mobile Layout (900px se niche) */
-@media (max-width: 900px) {
-    .dropdown-menu, .dropdown-submenu {
-        display: none; /* Mobile par click hone par hi dikhega */
-        list-style: none;
-        background: #f9f9f9;
-        padding-left: 15px;
-    }
-
-    .dropdown.active > .dropdown-menu,
-    .dropdown-sub.active > .dropdown-submenu {
-        display: block;
-    }
-
-    .dropdown-menu li a {
-        padding: 12px;
-        display: block;
-        border-bottom: 1px solid #eee;
-    }
-}
+  
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -1703,6 +1639,7 @@ document.querySelectorAll('.dropdown-sub > a').forEach(link => {
 
 </body>
 </html>
+
 
 
 
