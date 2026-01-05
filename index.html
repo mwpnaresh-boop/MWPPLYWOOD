@@ -1714,29 +1714,6 @@ document.querySelectorAll('.dropdown-sub > a').forEach(subDrop => {
   });
 });
 </script>
-  <script>
-/* ===============================
-   MOBILE MENU AUTO CLOSE FIX
-================================ */
-
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', () => {
-
-    // Mobile only
-    if (window.innerWidth <= 900) {
-
-      // Close main nav
-      document.querySelector('nav').classList.remove('active');
-
-      // Close all dropdowns
-      document.querySelectorAll('.dropdown, .dropdown-sub').forEach(item => {
-        item.classList.remove('active');
-      });
-
-    }
-  });
-});
-</script>
 <script>
 /* =====================================
    SAFE SMOOTH SCROLL (MOBILE FRIENDLY)
@@ -1759,45 +1736,84 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 </script>
-<script>
-/* =====================================
-   MOBILE MENU – CORRECT LOGIC
-===================================== */
+  <script>
+/* ===============================
+   MOBILE NAV – FINAL FIX
+================================ */
 
-document.querySelectorAll('nav a').forEach(link => {
+const nav = document.querySelector('nav');
+const hamburger = document.getElementById('hamburger');
+
+// Hamburger toggle
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+
+// MAIN dropdown (Our Product Range)
+document.querySelectorAll('.dropdown > a').forEach(link => {
   link.addEventListener('click', function (e) {
 
     if (window.innerWidth > 900) return;
 
-    const isMainDropdown =
-      this.closest('.dropdown') &&
-      !this.closest('.dropdown-sub') &&
-      this.getAttribute('href') === '#products';
+    e.preventDefault(); // page scroll rokna
+    this.parentElement.classList.toggle('active');
 
-    const isSubDropdown =
-      this.closest('.dropdown-sub') &&
-      this.getAttribute('href') === '#';
+  });
+});
 
-    // Dropdown open only
-    if (isMainDropdown || isSubDropdown) {
+// SUB dropdown (Plywood, Veneers)
+document.querySelectorAll('.dropdown-sub > a').forEach(link => {
+  link.addEventListener('click', function (e) {
+
+    if (window.innerWidth > 900) return;
+
+    e.preventDefault();
+    this.parentElement.classList.toggle('active');
+
+  });
+});
+
+// REAL LINKS – scroll + close menu
+document.querySelectorAll('nav a[href^="#"], nav a[href$=".html"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+
+    if (window.innerWidth > 900) return;
+
+    const href = this.getAttribute('href');
+
+    // Dropdown headers ko ignore karo
+    if (this.closest('.dropdown') && href === '#products') return;
+    if (this.closest('.dropdown-sub') && href === '#') return;
+
+    // ✅ MENU CLOSE
+    nav.classList.remove('active');
+    document.querySelectorAll('.dropdown, .dropdown-sub')
+      .forEach(el => el.classList.remove('active'));
+
+    // ✅ SMOOTH SCROLL
+    if (href.startsWith('#')) {
       e.preventDefault();
-      this.parentElement.classList.toggle('active');
-      return;
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      const headerOffset = 110;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
 
-    // REAL link → close AFTER scroll / navigation
-    setTimeout(() => {
-      document.querySelector('nav').classList.remove('active');
-      document
-        .querySelectorAll('.dropdown, .dropdown-sub')
-        .forEach(el => el.classList.remove('active'));
-    }, 250);
   });
 });
 </script>
 
+
 </body>
 </html>
+
 
 
 
