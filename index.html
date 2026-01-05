@@ -1143,6 +1143,54 @@ html {
     display: block !important;
   }
 }
+/* FORCE HAMBURGER BACK */
+@media (max-width: 900px){
+  .hamburger{
+    display:flex !important;
+  }
+}
+@media (max-width:900px){
+
+  nav{
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #fff;
+    transform: translateX(100%);
+    transition: 0.4s ease;
+    z-index: 9999;
+  }
+
+  nav.active{
+    transform: translateX(0);
+  }
+
+  nav ul{
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px;
+  }
+}
+@media (max-width:900px){
+
+  .dropdown-menu,
+  .dropdown-submenu{
+    display: none;
+    position: static;
+    box-shadow: none;
+    padding-left: 15px;
+  }
+
+  .dropdown.active > .dropdown-menu{
+    display: block;
+  }
+
+  .dropdown-sub.active > .dropdown-submenu{
+    display: block;
+  }
+}
 
 
 </style>
@@ -1750,9 +1798,39 @@ document.querySelectorAll('nav a').forEach(link => {
   });
 });
 </script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('nav');
+
+// hamburger toggle
+hamburger.addEventListener('click', ()=>{
+  nav.classList.toggle('active');
+});
+
+// dropdown toggle (mobile)
+document.querySelectorAll('.dropdown > a').forEach(link=>{
+  link.addEventListener('click', function(e){
+    if(window.innerWidth <= 900){
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    }
+  });
+});
+
+// sub dropdown
+document.querySelectorAll('.dropdown-sub > a').forEach(link=>{
+  link.addEventListener('click', function(e){
+    if(window.innerWidth <= 900){
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
+
 
 
 
