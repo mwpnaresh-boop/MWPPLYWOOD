@@ -618,110 +618,61 @@ html, body {
 .proof-card:hover p{
   color:#000000;
 }
-/* HAMBURGER */
-.hamburger{
-  display:none;
-  flex-direction:column;
-  gap:6px;
-  cursor:pointer;
-}
-
-.hamburger span{
-  width:28px;
-  height:3px;
-  background:var(--primary);
-  border-radius:5px;
-  transition:0.4s;
-}
-
-/* MOBILE NAV */
-@media(max-width:900px){
-  nav{
-    position:fixed;
-    top:70px;
-    right:-100%;
-    width:260px;
-    height:calc(100vh - 70px);
-    background:#fff;
-    box-shadow:-10px 0 30px rgba(0,0,0,0.15);
-    transition:0.4s ease;
-    padding-top:30px;
-  }
-
-  nav ul{
-    flex-direction:column;
-    gap:25px;
-    padding-left:30px;
-  }
-
-  nav.active{
-    right:0;
-  }
-
-  .hamburger{
-    display:flex;
-  }
-}
-/* ===== DROPDOWN MENU ===== */
-.menu li {
-  position: relative;
-}
-
-.dropdown-menu {
+/* ===== DESKTOP DROPDOWN ===== */
+.dropdown-menu,
+.dropdown-submenu {
+  display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  min-width: 220px;
-  border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-  transition: 0.3s ease;
-  z-index: 2000;
 }
 
 .dropdown:hover > .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-menu li {
-  padding: 0;
-}
-
-.dropdown-menu a {
   display: block;
-  padding: 12px 18px;
-  color: var(--primary);
-  font-weight: 500;
-}
-
-.dropdown-menu a:hover {
-  background: var(--bg-light);
-}
-
-/* SUB MENU */
-.dropdown-submenu {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background: #fff;
-  min-width: 220px;
-  border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(15px);
-  transition: 0.3s ease;
 }
 
 .dropdown-sub:hover > .dropdown-submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
+  display: block;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+
+  nav {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #fff;
+    transition: 0.4s ease;
+    overflow-y: auto;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  /* Mobile dropdown default CLOSED */
+  .dropdown-menu,
+  .dropdown-submenu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    padding-left: 15px;
+  }
+
+  /* When ACTIVE → OPEN */
+  .dropdown.active > .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-sub.active > .dropdown-submenu {
+    display: block;
+  }
 }
 
 /* ICON ALIGN */
@@ -1759,45 +1710,50 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 </script>
-<script>
-/* =====================================
-   MOBILE MENU – CORRECT LOGIC
-===================================== */
+  <script>
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('nav');
 
-document.querySelectorAll('nav a').forEach(link => {
+// Hamburger toggle
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+
+// Dropdown toggle (mobile only)
+document.querySelectorAll('.dropdown > a').forEach(link => {
   link.addEventListener('click', function (e) {
-
-    if (window.innerWidth > 900) return;
-
-    const isMainDropdown =
-      this.closest('.dropdown') &&
-      !this.closest('.dropdown-sub') &&
-      this.getAttribute('href') === '#products';
-
-    const isSubDropdown =
-      this.closest('.dropdown-sub') &&
-      this.getAttribute('href') === '#';
-
-    // Dropdown open only
-    if (isMainDropdown || isSubDropdown) {
+    if (window.innerWidth <= 900) {
       e.preventDefault();
       this.parentElement.classList.toggle('active');
-      return;
     }
+  });
+});
 
-    // REAL link → close AFTER scroll / navigation
-    setTimeout(() => {
-      document.querySelector('nav').classList.remove('active');
-      document
-        .querySelectorAll('.dropdown, .dropdown-sub')
+// Sub-dropdown toggle (mobile only)
+document.querySelectorAll('.dropdown-sub > a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    if (window.innerWidth <= 900) {
+      e.preventDefault();
+      this.parentElement.classList.toggle('active');
+    }
+  });
+});
+
+// Auto close menu after clicking REAL link
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', function () {
+    if (window.innerWidth <= 900 && !this.closest('.dropdown') && !this.closest('.dropdown-sub')) {
+      nav.classList.remove('active');
+      document.querySelectorAll('.dropdown, .dropdown-sub')
         .forEach(el => el.classList.remove('active'));
-    }, 250);
+    }
   });
 });
 </script>
 
 </body>
 </html>
+
 
 
 
