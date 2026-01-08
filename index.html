@@ -1196,7 +1196,27 @@ html {
     display: block !important;
   }
 }
+@media (max-width: 900px) {
+  /* Navbar ko slide in karwana */
+  nav.navbar.active {
+    right: 0;
+    display: block !important;
+  }
 
+  /* Dropdown ko default hide rakhna */
+  .dropdown-menu, .dropdown-submenu {
+    display: none !important;
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+
+  /* Jab parent par 'active' class ho tabhi dikhana */
+  .dropdown.active > .dropdown-menu,
+  .dropdown-sub.active > .dropdown-submenu {
+    display: block !important;
+  }
+}
 
 </style>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.rel='stylesheet'">
@@ -1816,10 +1836,46 @@ document.querySelectorAll('nav a[href^="#"], nav a[href$=".html"]').forEach(link
   });
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.querySelector('.navbar');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const subDropdowns = document.querySelectorAll('.dropdown-sub');
 
+    // 1. Mobile Hamburger Toggle
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+
+    // 2. Main Dropdown Toggle (Plywood, Veneers etc)
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 900) {
+                e.preventDefault(); // Page reload hone se rokne ke liye
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+
+    // 3. Sub-Dropdown Toggle (Gurjan Club, BWR etc)
+    subDropdowns.forEach(sub => {
+        const subLink = sub.querySelector('a');
+        subLink.addEventListener('click', function(e) {
+            if (window.innerWidth <= 900) {
+                e.stopPropagation(); // Parent menu band na ho jaye
+                e.preventDefault();
+                sub.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>
+
 
 
 
