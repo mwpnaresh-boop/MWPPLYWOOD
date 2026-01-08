@@ -58,41 +58,6 @@ body{background: var(--bg-light); overflow-x:hidden; scroll-behavior:smooth;}
   position:relative;
   z-index:6;
 }
-
-/* FLASH EFFECT */
-.flash{
-  position:absolute;
-  inset:-10%;
-  top: 55%;
-  background:radial-gradient(
-    circle,
-    rgba(180, 224, 250, 0.233) 0%,
-    rgba(7, 138, 245, 0.199) 10%,
-    rgba(97, 184, 255, 0.425) 10%,
-    transparent 70%
-  );
-  opacity:0;
-  animation:flashHit 5s ease-out forwards;
-  animation-delay:0.1s;
-  z-index:0;
-}
-
-
-/* ANIMATIONS */
-@keyframes flashHit{
-  0%{
-    opacity:0;
-    transform:scale(0.6);
-  }
-  40%{
-    opacity:1;
-    transform:scale(1);
-  }
-  100%{
-    opacity:0;
-    transform:scale(1.4);
-  }
-}
 /* TOP BAR & HEADER */
 .topbar{ background: var(--primary); color:#fff; padding:8px 40px; display:flex; justify-content:space-between; font-size:14px; }
 header{
@@ -1397,15 +1362,6 @@ html {
     <div class="gallery-item">
       <img src="Z3.webp" alt="Bedroom Interior">
     </div>
-    <div class="gallery-item">
-      <img src="Z4.webp" alt="Wardrobe Design">
-    </div>
-    <div class="gallery-item">
-      <img src="Z5.webp" alt="Office Interior">
-    </div>
-    <div class="gallery-item">
-      <img src="Z6.webp" alt="Modular Furniture">
-    </div>
   </div>
 </section>
 
@@ -1690,6 +1646,7 @@ if (stickyCTA) {
 </SCRipt>
 </body>
 </html>
+
 
 
 
