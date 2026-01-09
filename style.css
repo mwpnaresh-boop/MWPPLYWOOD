@@ -235,3 +235,76 @@ body {
         display: flex;
     }
 }
+/* Container Styling */
+.timeless-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.timeless-intro {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Flexbox Grid for Boxes */
+.proof-cards {
+    display: flex;
+    flex-wrap: wrap; /* Yeh mobile pe boxes ko niche shift karega */
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual Card Styling */
+.proof-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 30px;
+    flex: 1 1 calc(33.333% - 40px); /* Desktop pe 3 boxes */
+    min-width: 280px; /* Mobile par box ki width maintain karega */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.proof-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.proof-card h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.proof-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.timeless-line {
+    margin-top: 40px;
+    font-weight: bold;
+    color: #222;
+    font-size: 1.1rem;
+}
+
+/* --- Mobile Specific Adjustments --- */
+@media (max-width: 768px) {
+    .proof-card {
+        flex: 1 1 100%; /* Mobile par 1 box per row */
+        margin-bottom: 10px;
+    }
+    
+    .timeless-section {
+        padding: 40px 15px;
+    }
+}
