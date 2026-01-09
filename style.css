@@ -320,3 +320,49 @@ body {
         border-bottom: none;
     }
 }
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+    
+    .timeless-section {
+        margin: 40px 15px;      /* Side margins kam kar di */
+        padding: 40px 20px;     /* Internal space balance kiya */
+        border-radius: 20px;    /* Chote screen par corners thode kam round */
+    }
+
+    .timeless-section h2 {
+        font-size: 1.8rem;      /* Mobile par heading choti */
+    }
+
+    /* Bada box jo piche hai usko vertical kiya */
+    .proof-cards {
+        flex-direction: column; /* Cards ek ke niche ek aayenge */
+        gap: 0;                 /* Gap zero kiya kyunki border use kar rahe hain */
+        padding: 20px 15px;
+        text-align: center;     /* Mobile par center text zyada accha lagta hai */
+    }
+
+    .proof-card {
+        padding: 25px 10px;
+        width: 100%;            /* Poori width cover karega */
+        border-right: none !important; /* Desktop wali side border hatayi */
+        border-bottom: 1px solid #d6cbb1; /* Niche wali border lagayi */
+    }
+
+    .proof-card:last-child {
+        border-bottom: none;    /* Last item ke niche line nahi chahiye */
+    }
+
+    .proof-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .proof-card p {
+        font-size: 0.95rem;     /* Text size mobile ke liye perfect */
+    }
+
+    .timeless-line {
+        font-size: 0.9rem;
+        margin-top: 20px;
+    }
+}
