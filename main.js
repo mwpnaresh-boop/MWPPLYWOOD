@@ -89,3 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observer.observe(section);
 });
+window.addEventListener('scroll', () => {
+    const section = document.querySelector('.timeless-section');
+    const sectionPos = section.getBoundingClientRect().top;
+    const screenPos = window.innerHeight / 1.3;
+
+    if (sectionPos < screenPos) {
+        section.classList.add('active'); // Isse animation trigger hogi
+    }
+});
