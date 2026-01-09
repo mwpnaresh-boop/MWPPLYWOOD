@@ -308,3 +308,43 @@ body {
         padding: 40px 15px;
     }
 }
+/* Sabhi devices ke liye common style */
+.proof-cards {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* DESKTOP: Jab screen badi ho to 3 boxes line mein */
+@media (min-width: 769px) {
+    .proof-cards {
+        flex-direction: row;
+    }
+    .proof-card {
+        flex: 1; /* Teeno boxes barabar jagah lenge */
+    }
+}
+
+/* MOBILE: Jab screen 768px se chhoti ho */
+@media (max-width: 768px) {
+    .proof-cards {
+        flex-direction: column; /* Boxes ko ek ke niche ek karega */
+        align-items: center;
+    }
+    .proof-card {
+        width: 100%; /* Box poori width lega */
+        max-width: 350px; /* Mobile par box zyada faila hua na lage */
+        margin-bottom: 15px;
+    }
+}
+
+/* Box ki design styling */
+.proof-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
