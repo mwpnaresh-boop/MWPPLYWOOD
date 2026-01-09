@@ -67,27 +67,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 document.addEventListener("DOMContentLoaded", () => {
-    const revealSection = () => {
-        const sections = document.querySelectorAll('.scroll-up');
-        
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            // Initial style setup agar CSS mein nahi hai
-            section.style.opacity = "0";
-            section.style.transform = "translateY(40px)";
-            section.style.transition = "all 0.8s ease-out";
+    const scrollElements = document.querySelectorAll(".scroll-up");
 
-            if (sectionTop < windowHeight - 100) {
-                section.style.opacity = "1";
-                section.style.transform = "translateY(0)";
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+    };
+
+    const displayScrollElement = (element) => {
+        element.style.opacity = "1";
+        element.style.transform = "translateY(0)";
+    };
+
+    const hideScrollElement = (element) => {
+        // Sirf Desktop par hide karega, mobile par dikhta rahega
+        if (window.innerWidth > 768) {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(40px)";
+        } else {
+            element.style.opacity = "1";
+            element.style.transform = "none";
+        }
+    };
+
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
             }
         });
     };
 
-    // Run on scroll
-    window.addEventListener("scroll", revealSection);
-    // Run once on load
-    revealSection();
+    // Initial check
+    scrollElements.forEach(hideScrollElement);
+    
+    window.addEventListener("scroll", () => { 
+        handleScrollAnimation();
+    });
 });
