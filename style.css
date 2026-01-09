@@ -235,116 +235,27 @@ body {
         display: flex;
     }
 }
-/* Container Styling */
-.timeless-section {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.timeless-intro {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 40px;
-}
-
-/* Flexbox Grid for Boxes */
-.proof-cards {
-    display: flex;
-    flex-wrap: wrap; /* Yeh mobile pe boxes ko niche shift karega */
-    gap: 20px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Individual Card Styling */
-.proof-card {
-    background: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 30px;
-    flex: 1 1 calc(33.333% - 40px); /* Desktop pe 3 boxes */
-    min-width: 280px; /* Mobile par box ki width maintain karega */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.proof-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.proof-card h3 {
-    color: #333;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-}
-
-.proof-card p {
-    color: #555;
-    line-height: 1.6;
-}
-
-.timeless-line {
-    margin-top: 40px;
-    font-weight: bold;
-    color: #222;
-    font-size: 1.1rem;
-}
-
-/* --- Mobile Specific Adjustments --- */
-@media (max-width: 768px) {
-    .proof-card {
-        flex: 1 1 100%; /* Mobile par 1 box per row */
-        margin-bottom: 10px;
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.timeless-section');
     
-    .timeless-section {
-        padding: 40px 15px;
-    }
-}
-/* Sabhi devices ke liye common style */
-.proof-cards {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
-}
+    // Agar screen badi hai tabhi animation chalao
+    if (window.innerWidth > 768) {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(30px)";
+        section.style.transition = "all 0.8s ease-out";
 
-/* DESKTOP: Jab screen badi ho to 3 boxes line mein */
-@media (min-width: 769px) {
-    .proof-cards {
-        flex-direction: row;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(section);
+    } else {
+        // Mobile par direct dikhao, koi nautanki nahi
+        section.style.opacity = "1";
+        section.style.transform = "none";
     }
-    .proof-card {
-        flex: 1; /* Teeno boxes barabar jagah lenge */
-    }
-}
-
-/* MOBILE: Jab screen 768px se chhoti ho */
-@media (max-width: 768px) {
-    .proof-cards {
-        flex-direction: column; /* Boxes ko ek ke niche ek karega */
-        align-items: center;
-    }
-    .proof-card {
-        width: 100%; /* Box poori width lega */
-        max-width: 350px; /* Mobile par box zyada faila hua na lage */
-        margin-bottom: 15px;
-    }
-}
-
-/* Box ki design styling */
-.proof-card {
-    background: #fff;
-    border: 1px solid #eee;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center;
-}
+});
