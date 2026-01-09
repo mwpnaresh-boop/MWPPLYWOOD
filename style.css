@@ -304,65 +304,57 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-
-/* Mobile Responsive */
 @media (max-width: 768px) {
-    .proof-cards {
-        flex-direction: column;
-        padding: 30px 20px;
-    }
-    .proof-card {
-        border-right: none !important;
-        border-bottom: 1px solid #d6cbb1;
-        padding: 20px 0;
-    }
-    .proof-card:last-child {
-        border-bottom: none;
-    }
-}
-/* Mobile Responsive Fix */
-@media (max-width: 768px) {
-    
+    /* 1. Main Section Background */
     .timeless-section {
-        margin: 40px 15px;      /* Side margins kam kar di */
-        padding: 40px 20px;     /* Internal space balance kiya */
-        border-radius: 20px;    /* Chote screen par corners thode kam round */
+        margin: 20px 10px !important; 
+        padding: 30px 15px !important;
+        background: #ffffff !important; /* Force background */
+        border-radius: 20px;
+        display: block !important; /* Ensure visibility */
     }
 
+    /* 2. Heading and Intro */
     .timeless-section h2 {
-        font-size: 1.8rem;      /* Mobile par heading choti */
+        font-size: 1.6rem !important;
+        text-align: center;
+    }
+    .timeless-intro {
+        text-align: center;
+        margin-bottom: 20px;
     }
 
-    /* Bada box jo piche hai usko vertical kiya */
+    /* 3. The Piche Wala Box (Proof Cards Container) */
     .proof-cards {
-        flex-direction: column; /* Cards ek ke niche ek aayenge */
-        gap: 0;                 /* Gap zero kiya kyunki border use kar rahe hain */
-        padding: 20px 15px;
-        text-align: center;     /* Mobile par center text zyada accha lagta hai */
+        display: flex !important;
+        flex-direction: column !important; /* Ek ke niche ek */
+        background: #fdfaf3 !important; /* Yeh box dikhna chahiye */
+        padding: 20px !important;
+        border: 1px solid #e0d5ba !important;
+        border-radius: 15px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
     }
 
+    /* 4. Individual Content */
     .proof-card {
-        padding: 25px 10px;
-        width: 100%;            /* Poori width cover karega */
-        border-right: none !important; /* Desktop wali side border hatayi */
-        border-bottom: 1px solid #d6cbb1; /* Niche wali border lagayi */
+        padding: 15px 0 !important;
+        border-right: none !important; /* Side border hatao */
+        border-bottom: 1px solid #d6cbb1 !important; /* Niche line lagao */
+        text-align: left !important; /* Pera left hi rakha hai */
     }
 
     .proof-card:last-child {
-        border-bottom: none;    /* Last item ke niche line nahi chahiye */
+        border-bottom: none !important;
     }
 
     .proof-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
+        font-size: 1.2rem !important;
+        margin-bottom: 8px;
     }
 
     .proof-card p {
-        font-size: 0.95rem;     /* Text size mobile ke liye perfect */
-    }
-
-    .timeless-line {
-        font-size: 0.9rem;
-        margin-top: 20px;
+        font-size: 0.95rem !important;
+        line-height: 1.5;
     }
 }
