@@ -67,34 +67,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        threshold: 0.2 // Jab 20% section dikhega tab trigger hoga
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Cards ko dhire se dikhane ke liye class add karein
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-            }
-        });
-    }, observerOptions);
-
-    // Styling for Animation
     const section = document.querySelector('.timeless-section');
-    section.style.opacity = "0";
-    section.style.transform = "translateY(30px)";
-    section.style.transition = "all 0.8s ease-out";
+    
+    // Agar screen badi hai tabhi animation chalao
+    if (window.innerWidth > 768) {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(30px)";
+        section.style.transition = "all 0.8s ease-out";
 
-    observer.observe(section);
-});
-window.addEventListener('scroll', () => {
-    const section = document.querySelector('.timeless-section');
-    const sectionPos = section.getBoundingClientRect().top;
-    const screenPos = window.innerHeight / 1.3;
-
-    if (sectionPos < screenPos) {
-        section.classList.add('active'); // Isse animation trigger hogi
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(section);
+    } else {
+        // Mobile par direct dikhao, koi nautanki nahi
+        section.style.opacity = "1";
+        section.style.transform = "none";
     }
 });
