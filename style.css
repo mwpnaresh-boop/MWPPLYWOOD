@@ -235,3 +235,88 @@ body {
         display: flex;
     }
 }
+/* ================= TIMELESS SECTION ================= */
+.timeless-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 60px 40px;
+    text-align: center;
+    background: #ffffff; /* Main Background */
+    border-radius: 40px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+}
+
+.timeless-section h2 {
+    color: #8B6B23;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.timeless-intro {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* BACKBOX CONTAINER (Cards ke piche wala bada box) */
+.proof-cards {
+    background: #fdfaf3; /* Light Creamy/Golden tint box */
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 50px 30px;
+    border-radius: 30px;
+    border: 1px solid #e0d5ba;
+    margin-bottom: 30px;
+}
+
+/* Individual Content (Bina separate card box ke) */
+.proof-card {
+    flex: 1;
+    text-align: left;
+    padding: 0 20px;
+}
+
+/* Side borders separation ke liye (Optional) */
+.proof-card:not(:last-child) {
+    border-right: 1px solid #d6cbb1;
+}
+
+.proof-card h3 {
+    color: #8B6B23;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.proof-card p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.timeless-line {
+    font-weight: 600;
+    color: #8B6B23;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .proof-cards {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+    .proof-card {
+        border-right: none !important;
+        border-bottom: 1px solid #d6cbb1;
+        padding: 20px 0;
+    }
+    .proof-card:last-child {
+        border-bottom: none;
+    }
+}
