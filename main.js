@@ -66,3 +66,28 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(el);
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const revealSection = () => {
+        const sections = document.querySelectorAll('.scroll-up');
+        
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            // Initial style setup agar CSS mein nahi hai
+            section.style.opacity = "0";
+            section.style.transform = "translateY(40px)";
+            section.style.transition = "all 0.8s ease-out";
+
+            if (sectionTop < windowHeight - 100) {
+                section.style.opacity = "1";
+                section.style.transform = "translateY(0)";
+            }
+        });
+    };
+
+    // Run on scroll
+    window.addEventListener("scroll", revealSection);
+    // Run once on load
+    revealSection();
+});
