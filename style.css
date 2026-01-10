@@ -1,17 +1,4 @@
-.your-hamburger-class {
-    /* 1. Mobile tap highlight hatane ke liye */
-    -webkit-tap-highlight-color: transparent !important;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 
-    /* 2. Blue outline (border) hatane ke liye */
-    outline: none !important;
-    box-shadow: none !important;
-
-    /* 3. Text selection/highlighting rokne ke liye */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
 /* ================= GLOBAL SETTINGS ================= */
 *{
     margin: 0;
@@ -482,4 +469,8 @@ body {
     border-radius:10px;
   }
 }
-
+.your-hamburger-class:focus, 
+.your-hamburger-class:active {
+    outline: none !important;
+    border: none !important;
+}
