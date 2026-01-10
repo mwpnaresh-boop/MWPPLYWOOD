@@ -66,4 +66,17 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(el);
     });
 });
+/* ================= INTERIOR GALLERY SCROLL ================= */
+
+const gallerySection = document.querySelector('.interior-gallery');
+
+const galleryObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      gallerySection.classList.add('show');
+    }
+  });
+},{ threshold:0.3 });
+
+galleryObserver.observe(gallerySection);
 
