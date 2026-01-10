@@ -235,27 +235,3 @@ body {
         display: flex;
     }
 }
-document.addEventListener('DOMContentLoaded', () => {
-    const section = document.querySelector('.timeless-section');
-    
-    // Agar screen badi hai tabhi animation chalao
-    if (window.innerWidth > 768) {
-        section.style.opacity = "0";
-        section.style.transform = "translateY(30px)";
-        section.style.transition = "all 0.8s ease-out";
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                }
-            });
-        }, { threshold: 0.1 });
-        observer.observe(section);
-    } else {
-        // Mobile par direct dikhao, koi nautanki nahi
-        section.style.opacity = "1";
-        section.style.transform = "none";
-    }
-});
