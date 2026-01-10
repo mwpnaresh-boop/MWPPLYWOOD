@@ -395,4 +395,77 @@ body {
     font-size:32px;
   }
 }
+/* ===== PRODUCT SCROLL SECTION ===== */
+.product-scroll-container{
+  padding:60px 40px;
+  background:#f8f8f8;
+}
+
+/* Wrapper */
+.products-wrapper{
+  display:flex;
+  gap:25px;
+  justify-content:space-between; /* desktop me poori line bhar jaaye */
+  flex-wrap:nowrap;              /* 🔴 ek hi line */
+}
+
+/* Card */
+.product-card{
+  flex:1;                        /* sab equal width */
+  min-width:0;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  text-decoration:none;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image */
+.product-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+/* Text */
+.product-info{
+  padding:16px;
+  text-align:center;
+}
+
+.product-info h3{
+  color:#3b2a00;
+  font-size:18px;
+  font-weight:600;
+}
+
+/* Hover */
+.product-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width:1024px){
+  .products-wrapper{
+    overflow-x:auto;
+    justify-content:flex-start;
+    padding-bottom:10px;
+  }
+
+  .product-card{
+    flex:0 0 260px; /* mobile swipe cards */
+  }
+
+  .products-wrapper::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .products-wrapper::-webkit-scrollbar-thumb{
+    background:#c9a24d;
+    border-radius:10px;
+  }
+}
 
