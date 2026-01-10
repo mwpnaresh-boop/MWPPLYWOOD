@@ -235,3 +235,83 @@ body {
         display: flex;
     }
 }
+.timeless-section{
+  padding:100px 12%;
+  background:linear-gradient(white,#ffffff);
+  color:#000000;
+  text-align:center;
+}
+
+.timeless-section h2{
+  font-size:42px;
+  letter-spacing:1px;
+  margin-bottom:18px;
+  color:#000000;
+}
+
+.timeless-intro{
+  max-width:750px;
+  margin:0 auto 60px;
+  font-size:17px;
+  line-height:1.9;
+  color:#928686;
+}
+
+.proof-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:35px;
+}
+
+.proof-card{
+  background:rgba(107, 99, 99, 0.06);
+  padding:40px 30px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(248, 192, 51, 0.25);
+  transition:0.4s ease;
+}
+
+.proof-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 30px 70px rgba(179, 178, 178, 0.6);
+}
+
+.proof-card h3{
+  color:#ffca59;
+  margin-bottom:15px;
+  font-size:20px;
+}
+
+.proof-card p{
+  font-size:15px;
+  line-height:1.8;
+  color:#525151;
+}
+
+.timeless-line{
+  margin-top:60px;
+  font-size:18px;
+  letter-spacing:4px;
+  color:#000000;
+}
+
+@media(max-width:900px){
+  .proof-cards{
+    grid-template-columns:1fr;
+  }
+}
+/* Text color change only */
+.proof-card h3,
+.proof-card p{
+  transition: color 0.35s ease;
+}
+
+/* On hover – change font color */
+.proof-card:hover h3{
+  color:#d8a200; /* premium gold */
+}
+
+.proof-card:hover p{
+  color:#000000;
+}
