@@ -66,3 +66,35 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(el);
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+
+  const observerOptions = {
+    threshold: 0.2
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translate(0,0)";
+      }
+    });
+  }, observerOptions);
+
+  /* ===== UP ANIMATION ===== */
+  document.querySelectorAll(".scroll-up").forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "all 0.8s ease-out";
+    observer.observe(el);
+  });
+
+  /* ===== LEFT ANIMATION ===== */
+  document.querySelectorAll(".scroll-left").forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateX(-60px)";
+    el.style.transition = "all 0.9s ease-out";
+    observer.observe(el);
+  });
+
+});
