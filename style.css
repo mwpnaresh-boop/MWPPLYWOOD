@@ -1,8 +1,8 @@
 :root {
-  --primary: #7a5e12;
-  --secondary: #fbff00;
-  --accent: #ce9e02;
-  --bg-light: #f4f4f4;
+  primary: #7a5e12;
+  secondary: #fbff00;
+  accent: #ce9e02;
+  bg-light: #f4f4f4;
 }
 /* ================= GLOBAL SETTINGS ================= */
 *{
