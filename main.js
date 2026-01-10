@@ -1,34 +1,17 @@
-/* ================= SLIDER ================= */
-const slides = document.querySelector(".slides");
+const slider = document.querySelector(".slider-container");
 const totalSlides = document.querySelectorAll(".slide").length;
 let index = 0;
 
 setInterval(() => {
-  index++;
-  if(index >= totalSlides) index = 0;
-  slides.style.transform = `translateX(-${index * 100}%)`;
+    index++;
+    if (index >= totalSlides) index = 0;
+
+    // Direct scroll karega, jo CSS ki wajah se smooth hoga
+    slider.scrollTo({
+        left: slider.offsetWidth * index,
+        behavior: 'smooth'
+    });
 }, 4000);
-
-/* ================= TOUCH SWIPE ================= */
-let startX = 0;
-
-slides.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
-
-slides.addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
-
-  if(diff > 50) index++;
-  else if(diff < -50) index--;
-
-  if(index < 0) index = 0;
-  if(index >= totalSlides) index = totalSlides - 1;
-
-  slides.style.transform = `translateX(-${index * 100}%)`;
-});
-
 /* ================= HAMBURGER ================= */
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
