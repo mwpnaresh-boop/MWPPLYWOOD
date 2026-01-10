@@ -319,20 +319,19 @@ body {
 
 .interior-gallery{
   padding:100px 8%;
-  background:#0f0f0f;
   text-align:center;
-  overflow:hidden;
+  background:transparent;   /* 🔥 NO BACKGROUND */
 }
 
 .interior-gallery h2{
   font-size:42px;
-  color:#fff;
+  color:#222;
   letter-spacing:1px;
   margin-bottom:12px;
 }
 
 .gallery-sub{
-  color:#b9b9b9;
+  color:#666;
   font-size:17px;
   max-width:520px;
   margin:0 auto 60px;
@@ -354,10 +353,11 @@ body {
   overflow:hidden;
   border-radius:22px;
   cursor:pointer;
-  box-shadow:0 20px 45px rgba(0,0,0,0.6);
+  background:#fff;
+  box-shadow:0 18px 40px rgba(0,0,0,0.12);
   transform:translateY(50px);
   opacity:0;
-  transition:all 1s ease;
+  transition:all 0.9s ease;
 }
 
 .gallery-item img{
@@ -367,23 +367,10 @@ body {
   transition:transform 1.2s ease;
 }
 
-/* ================= HOVER EFFECT ================= */
-
-.gallery-item::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-  opacity:0;
-  transition:0.6s;
-}
-
-.gallery-item:hover::after{
-  opacity:1;
-}
+/* ================= HOVER ================= */
 
 .gallery-item:hover img{
-  transform:scale(1.12);
+  transform:scale(1.1);
 }
 
 /* ================= SCROLL REVEAL ================= */
@@ -393,9 +380,9 @@ body {
   opacity:1;
 }
 
-.interior-gallery.show .gallery-item:nth-child(1){ transition-delay:0.2s; }
-.interior-gallery.show .gallery-item:nth-child(2){ transition-delay:0.4s; }
-.interior-gallery.show .gallery-item:nth-child(3){ transition-delay:0.6s; }
+.interior-gallery.show .gallery-item:nth-child(1){ transition-delay:0.15s; }
+.interior-gallery.show .gallery-item:nth-child(2){ transition-delay:0.3s; }
+.interior-gallery.show .gallery-item:nth-child(3){ transition-delay:0.45s; }
 
 /* ================= MOBILE ================= */
 
@@ -408,3 +395,4 @@ body {
     font-size:32px;
   }
 }
+
