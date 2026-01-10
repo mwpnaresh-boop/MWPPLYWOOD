@@ -126,11 +126,11 @@ body {
 }
 
 .slide-content {
-    position: absolute;
+    position: center;
     top: 50%;
-    left: 8%;
+    left:50%;
     transform: translateY(-50%);
-    color: #797979;
+    color: #fbff00;
     max-width: 550px;
     z-index: 2;
 }
