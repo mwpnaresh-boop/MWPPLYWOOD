@@ -90,44 +90,31 @@ body {
 .has-sub:hover .sub-dropdown { display: block; }
 .sub-dropdown li { padding: 10px 15px; }
 
-/* ================= SLIDER ================= */
-.slider {
+.slider-container {
     width: 100%;
-    height: 600px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+    overflow-x: auto; /* Swipe enable karega */
+    scroll-snap-type: x mandatory; /* Snap effect ke liye */
+    scroll-behavior: smooth; /* Smooth auto-scroll ke liye */
+    -webkit-overflow-scrolling: touch; /* iOS par smoothness ke liye */
+}
+
+/* Scrollbar hide karne ke liye */
+.slider-container::-webkit-scrollbar {
+    display: none;
 }
 
 .slides {
     display: flex;
-    height: 100%;
-    transition: transform 1.2s cubic-bezier(0.77,0,0.175,1);
 }
 
 .slide {
     min-width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    scroll-snap-align: start; /* Har slide par rukega */
 }
 
-.slide::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-}
-
-.slide-content {
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translateY(-50%);
-    color: #fff;
-    max-width: 550px;
-    z-index: 2;
+.slide img {
+    width: 100%;
+    display: block;
 }
 
 /* ================= ABOUT SECTION (WHO WE ARE) ================= */
