@@ -469,8 +469,23 @@ body {
     border-radius:10px;
   }
 }
-.your-hamburger-class:focus, 
-.your-hamburger-class:active {
+/* Sabhi clickable elements se blue highlight hatane ke liye */
+button, 
+a, 
+div, 
+span, 
+.your-hamburger-class {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
     outline: none !important;
-    border: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+/* Jab click karke hold karte hain tab ke liye */
+.your-hamburger-class:active, 
+.your-hamburger-class:focus {
+    outline: none !important;
+    background-color: transparent !important;
+    -webkit-tap-highlight-color: transparent !important;
 }
