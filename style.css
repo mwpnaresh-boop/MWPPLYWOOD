@@ -153,8 +153,8 @@ header{
 
 /* Paragraph / Tagline */
 .slide-content p{
-    font-size: 18px;
-    color: #FFFF00;           /* PURE YELLOW */
+    font-size: 20px;
+    color: #FFFF;           /* PURE YELLOW */
     max-width: 750px;
     margin: 0 auto 25px;
     line-height: 1.8;
@@ -187,7 +187,7 @@ header{
     }
 
     .slide-content p{
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
