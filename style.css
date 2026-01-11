@@ -125,8 +125,67 @@ body {
     background: rgba(0,0,0,0.45);
 }
 
-.slide-content{position: center; z-index:2; text-align: center;}
-.slide h1{position: center; z-index:2; text-align: center; font-size:48px; color:#fbff00; margin-bottom:2px;}
+/* ================= SLIDER CONTENT ================= */
+
+.slide-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Heading */
+.slide-content h1{
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFFF00;           /* PURE YELLOW */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Paragraph / Tagline */
+.slide-content p{
+    font-size: 18px;
+    color: #FFFF00;           /* PURE YELLOW */
+    max-width: 750px;
+    margin: 0 auto 25px;
+    line-height: 1.8;
+}
+
+/* Button (optional) */
+.slide-content a{
+    display: inline-block;
+    padding: 14px 36px;
+    background: #FFFF00;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: 0.3s ease;
+}
+
+/* Button Hover */
+.slide-content a:hover{
+    background: #ffeb3b;
+    transform: translateY(-3px);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+    .slide-content h1{
+        font-size: 32px;
+    }
+
+    .slide-content p{
+        font-size: 16px;
+    }
+}
 
 
 /* ================= ABOUT SECTION (WHO WE ARE) ================= */
