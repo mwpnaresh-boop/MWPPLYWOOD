@@ -79,3 +79,39 @@ const galleryObserver = new IntersectionObserver((entries)=>{
 },{ threshold:0.3 });
 
 galleryObserver.observe(gallerySection);
+/* ================= COUNTER ANIMATION ================= */
+
+const counters = document.querySelectorAll('.counter');
+let started = false;
+
+function startCounters() {
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+    const speed = target / 150;
+
+    const updateCount = () => {
+      count += speed;
+      if (count < target) {
+        counter.innerText = Math.floor(count);
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
+    };
+    updateCount();
+  });
+}
+
+/* Start animation when section visible */
+window.addEventListener('scroll', () => {
+  const section = document.querySelector('.adve-section');
+  const sectionTop = section.getBoundingClientRect().top;
+  const screenHeight = window.innerHeight;
+
+  if (sectionTop < screenHeight - 100 && !started) {
+    startCounters();
+    started = true;
+  }
+});
+
