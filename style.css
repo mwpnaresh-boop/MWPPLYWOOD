@@ -125,7 +125,7 @@ body {
     background: rgba(0,0,0,0.45);
 }
 
-.slide-content{position: center; z-index:2; text-align: center; color:#fbff00;}
+.slide-content{position: center; z-index:2; text-align: center;}
 .slide h1{position: center; z-index:2; text-align: center; font-size:48px; color:#fbff00; margin-bottom:2px;}
 
 
