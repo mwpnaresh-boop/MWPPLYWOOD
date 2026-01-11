@@ -469,3 +469,92 @@ body {
     border-radius:10px;
   }
 }
+/* ================= WHY US SECTION ================= */
+
+.why-us{
+  padding:90px 12%;
+  background:#ffffff;
+  text-align:center;
+}
+
+.why-us h2{
+  font-size:42px;
+  color:#3b2a00;
+  margin-bottom:20px;
+  font-weight:700;
+}
+
+.why-us p{
+  max-width:850px;
+  margin:0 auto 35px;
+  font-size:17px;
+  line-height:1.9;
+  color:#666;
+}
+
+.why-btn{
+  display:inline-block;
+  padding:14px 40px;
+  background:#ffca59;
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:40px;
+  transition:0.3s ease;
+}
+
+.why-btn:hover{
+  background:#e6b84d;
+  transform:translateY(-3px);
+}
+
+/* ================= ADVANTAGE / COUNTER SECTION ================= */
+
+.adve-section{
+  padding:80px 10%;
+  background:#f8f8f8;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+  text-align:center;
+}
+
+.adve-card{
+  background:#ffffff;
+  padding:45px 30px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+  transition:0.4s ease;
+}
+
+.adve-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.15);
+}
+
+.adve-card h2{
+  font-size:48px;
+  color:#d8a200;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.adve-card p{
+  font-size:16px;
+  color:#555;
+  letter-spacing:1px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+  .adve-section{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
+  .why-us h2{
+    font-size:32px;
+  }
+}
+
