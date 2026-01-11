@@ -26,19 +26,18 @@ body {
     justify-content: space-between;
 }
 
-.header {
+/* ================= FIXED HEADER ================= */
+
+.header{
+    position: fixed;        /* 🔒 Freeze */
+    top: 0;
+    left: 0;
+    width: 100%;
     background: #fff;
-    padding: 8px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    position: fixed;
-    z-index: 9999;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
-body{
-    padding-top: 80px;  /* header height ke barabar */
-}
+
 
 .logo-area {
     display: flex;
